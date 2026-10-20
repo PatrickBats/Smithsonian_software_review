@@ -1,5 +1,12 @@
 # Data and checkpoint setup
 
+For a complete copy-and-run example, use the [first-run walkthrough](QUICKSTART.md).
+This page describes the storage layout and additional inputs for larger workflows.
+
+The minimum classifier demo needs **one PNG, one verified checkpoint, and the
+classifier environment**. The provided crop bundle is a convenient way to obtain
+verified examples; raw NDPI slides are not needed for this demo.
+
 ## Access
 
 The original NDPI microscopy images, verified NDPA annotations, prepared data, and
@@ -14,7 +21,8 @@ only the required inputs to a private external directory and retain the relative
 layout below. Do not copy whole slides merely to run the crop demo.
 
 ```bash
-# Example from your workstation; replace YOUR_NETID and destination.
+# Optional full run download; the walkthrough downloads only the required weights.
+mkdir -p external/runs
 scp -r YOUR_NETID@nots.rice.edu:/rhf/allocations/dsci435/Smithsonian_F26/runs/broad_swin_2026-10-08 external/runs/
 scp -r YOUR_NETID@nots.rice.edu:/rhf/allocations/dsci435/Smithsonian_F26/runs/broad_dino_2026-10-08 external/runs/
 ```

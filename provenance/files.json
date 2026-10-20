@@ -21,8 +21,8 @@
   },
   {
     "file": "README.md",
-    "sha256": "cd418ad5e87c513e91d857d649644d13eb379e1c528fd6bac5e2728a266e69d2",
-    "bytes": 3959
+    "sha256": "0e20dfa30be5fb79f53aa7dc22fd405dc01af51d263c665eec60ea539606446e",
+    "bytes": 4958
   },
   {
     "file": "VALIDATION.md",
@@ -61,8 +61,8 @@
   },
   {
     "file": "docs/DATA.md",
-    "sha256": "89c750868d9de355c42086c1977b6512128737b12827456d669b5399bfba79f6",
-    "bytes": 4870
+    "sha256": "176a3d94dca999512d38a9328b6674fe92b0069f99ea3807415f95f285a17c8c",
+    "bytes": 5301
   },
   {
     "file": "docs/METHODS.md",
@@ -70,9 +70,19 @@
     "bytes": 2146
   },
   {
+    "file": "docs/QUICKSTART.md",
+    "sha256": "cf5e565472423b6299713953ad5bcc5b16a9e55f505fc15761aefb233d122dd8",
+    "bytes": 8312
+  },
+  {
+    "file": "docs/RESULTS.md",
+    "sha256": "358dcc7177a40388e37535ee53c1ada48b7d283c55e049ff0e8ee16bd1ce94e7",
+    "bytes": 4236
+  },
+  {
     "file": "docs/WORKFLOWS.md",
-    "sha256": "dab7d2117b95852e6ab36f6cd34af50e1253f7cf7e1c2fcf69f3e7ef13dcf839",
-    "bytes": 8123
+    "sha256": "f4869b98112877e53d1c0bdc483cde6d68de6cf1b35a873241497d5a125de76b",
+    "bytes": 9155
   },
   {
     "file": "examples/crops.json",

@@ -1,4 +1,18 @@
-# Workflow commands
+# Preparation, training, and inference workflows
+
+If this is your first visit, use the [first-run walkthrough](QUICKSTART.md).
+This page is the reference for running larger stages once inputs are available.
+
+| Stage | Input | Produces |
+| --- | --- | --- |
+| Prepare examples | Images, annotation geometry, category map | Verified crops or detector tiles |
+| Train | Prepared training examples and validation split | Selected classifier checkpoint or fixed final detector checkpoint |
+| Infer | Saved checkpoint and new image/crop | Boxes and/or category probabilities |
+| Evaluate | Predictions and known reference annotations | Matching records and clearly scoped metrics |
+
+A **checkpoint** is a saved model's weights. A **crop** is a small image around one
+specimen. A **tile** is a larger image region that may contain multiple specimens.
+An **annotation** records an expert's location and, when available, category label.
 
 Run from the repository root with the documented dependencies installed. Commands
 below are separate stages, not a scheduler dependency chain. Use new output
@@ -114,6 +128,9 @@ its output. Historical BGR/RGB diagnostic scripts are included as technical
 provenance, not recommended default preprocessing. Use RGB input for the demo.
 
 ## Outputs
+
+See the [results-to-command map](RESULTS.md) to connect each reported comparison
+to its inputs, command, and output files.
 
 Training writes configuration, provenance, metrics, and checkpoints. Validation
 writes predictions, matching results, and aggregate scores. `scripts/results.py`
