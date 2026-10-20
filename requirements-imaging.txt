@@ -1,0 +1,7 @@
+-r requirements.txt
+opencv-python==4.13.0.92
+tifffile==2026.3.3
+zarr==3.1.5
+imagecodecs==2026.3.6
+openslide-python==1.4.6
+openslide-bin==4.0.1.2

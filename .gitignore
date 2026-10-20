@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv*/
+external/
+outputs/
+weights/
+config/local*
+*.pt
+*.pth
+*.ndpi
+*.ndpa

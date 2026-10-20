@@ -1,0 +1,30 @@
+{
+  "swin_separate_slides": {
+    "relative_path": "runs/broad_swin_2026-10-08/separate_slides/ordinary_baseline/best.pt",
+    "sha256": "14d6e2d2727563c077320a82f77163fcd1e25eefaea6a41e84f9b1e415c53e70",
+    "architecture": "swin",
+    "categories": 28,
+    "split": "separate_slides"
+  },
+  "swin_shared_slides": {
+    "relative_path": "runs/broad_swin_2026-10-08/shared_slides/ordinary_baseline/best.pt",
+    "sha256": "2e43c46aa30d42df5264a35598a4446a7f43e7ea79e87de79b5afc9bbe78d4e8",
+    "architecture": "swin",
+    "categories": 28,
+    "split": "shared_slides"
+  },
+  "dino_separate_slides": {
+    "relative_path": "runs/broad_dino_2026-10-08/separate_slides/backbone_finetune/best.pt",
+    "sha256": "ad37dea7cf4cdf65254a4f9a7d473ec373907439333665f961ebf1b8fb95058f",
+    "architecture": "dino",
+    "categories": 28,
+    "split": "separate_slides"
+  },
+  "dino_shared_slides": {
+    "relative_path": "runs/broad_dino_2026-10-08/shared_slides/backbone_finetune/best.pt",
+    "sha256": "e7cea8841ce34300a7a2fccac173c0b2472259e52c72bafcafc156e277625ea6",
+    "architecture": "dino",
+    "categories": 28,
+    "split": "shared_slides"
+  }
+}

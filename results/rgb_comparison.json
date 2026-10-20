@@ -1,0 +1,29 @@
+{
+  "status": "complete",
+  "training_performed": false,
+  "test_used": false,
+  "detector_rerun": false,
+  "same_boxes_planes_and_crops_verified": true,
+  "all1777_swin_categories_reproduced": true,
+  "candidate_predictions": 1777,
+  "swin": {
+    "known_validation_objects": 274,
+    "detected": 258,
+    "correct": 93,
+    "classification_accuracy_on_detected": 0.36046511627906974,
+    "end_to_end_success": 0.33941605839416056
+  },
+  "dino": {
+    "known_validation_objects": 274,
+    "detected": 258,
+    "correct": 125,
+    "classification_accuracy_on_detected": 0.4844961240310077,
+    "end_to_end_success": 0.4562043795620438
+  },
+  "paired_detected_objects": 258,
+  "both_correct": 75,
+  "swin_only_correct": 18,
+  "dino_only_correct": 50,
+  "both_wrong": 115,
+  "caveat": "Validation diagnostic: Abbas detector saw 13/14 validation slides in its original training."
+}

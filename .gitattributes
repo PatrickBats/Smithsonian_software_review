@@ -1,0 +1,2 @@
+# Frozen category fingerprints include original CSV line endings.
+data/*.csv -text whitespace=cr-at-eol

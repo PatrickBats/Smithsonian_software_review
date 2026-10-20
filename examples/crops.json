@@ -1,0 +1,23 @@
+[
+  {
+    "record_id": "C_418114_W_Nassichuk_L_2025_01_14_16_15_48_Alaska::ndpviewstate:108",
+    "image": "val/1cd648f6a2e6cf30bc3692f975209182ff932233f6e081a986d68017817b30b0.png",
+    "sha256": "43c150f39595e25fdc79ac9fb416cf0ee39069c346028ad4af42d18efeace6c0",
+    "category": "Taxodium sp.",
+    "split": "val"
+  },
+  {
+    "record_id": "C_418114_W_Nassichuk_L_2025_01_14_16_15_48_Alaska::ndpviewstate:116",
+    "image": "val/8d9674faf973332432a5e223b477c287a123782ef8321f012e18eb650cdaeb33.png",
+    "sha256": "3287689db11b1a625880c9803fa2ea190cbba69053a74fd32f4e508429c6a477",
+    "category": "Alnipollenites verus",
+    "split": "val"
+  },
+  {
+    "record_id": "C_418114_W_Nassichuk_L_2025_01_14_16_15_48_Alaska::ndpviewstate:118",
+    "image": "val/aa873037087a232a5d610d4254eb16587469e52a55980becf565d5bf5c3de55f.png",
+    "sha256": "711289e57e1104c44d400f8da33a83ed4e9a668bae426d10de217123d05a649a",
+    "category": "Bisaccate",
+    "split": "val"
+  }
+]

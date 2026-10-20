@@ -1,0 +1,6 @@
+# Python 3.13; install the CPU or CUDA torch wheel separately (see README).
+torch==2.10.0
+torchvision==0.25.0
+numpy==2.4.3
+Pillow==12.1.1
+omegaconf==2.3.0

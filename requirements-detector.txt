@@ -1,0 +1,5 @@
+-r requirements-imaging.txt
+rfdetr==1.6.4
+rfdetr-plus==1.0.2
+
+h5py==3.16.0

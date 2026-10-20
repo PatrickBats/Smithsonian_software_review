@@ -1,0 +1,11 @@
+# Source from the repository root after replacing the input locations.
+export SMITHSONIAN_ROOT="$PWD/external"
+export SMITHSONIAN_OUTPUT="$PWD/outputs"
+export DINO_SOURCE="$SMITHSONIAN_ROOT/dinov2"
+export SPRING_SOURCE="$SMITHSONIAN_ROOT/spring"
+export METHOD_A_BASELINE_ROOT="$SMITHSONIAN_ROOT/processed/method_a_focus_stack_v1"
+export METHOD_A_DATA_ROOT="$SMITHSONIAN_OUTPUT/method_a_new"
+export METHOD_A_RESULTS_ROOT="$SMITHSONIAN_OUTPUT/method_a_results_new"
+export METHOD_A_LOG_ROOT="$SMITHSONIAN_OUTPUT/logs"
+export METHOD_A_PRETRAINED_WEIGHTS="$SMITHSONIAN_ROOT/weights/rf-detr-xxlarge.pth"
+export COMPARISON_OUTPUT="$SMITHSONIAN_OUTPUT/rgb_comparison_new"
