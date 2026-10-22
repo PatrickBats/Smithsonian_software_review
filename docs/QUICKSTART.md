@@ -104,7 +104,7 @@ assert hashlib.sha256(p.read_bytes()).hexdigest() == row['sha256']
 print(p)
 PYCODE
 )"
-python scripts/infer.py --model swin --checkpoint weights/swin.pt --image "$CROP" --output outputs/first_swin.json
+python -m method_b.classification.predict_categories --model swin --checkpoint weights/swin.pt --image "$CROP" --output outputs/first_swin.json
 ```
 
 **Expected:** one prediction is written to `outputs/first_swin.json`. In the tested
@@ -149,7 +149,7 @@ git clone https://github.com/facebookresearch/dinov2.git external/dinov2
 git -C external/dinov2 checkout 7764ea0f912e53c92e82eb78a2a1631e92725fc8
 export DINO_SOURCE="$PWD/external/dinov2"
 python scripts/preflight.py --artifact-root "$SMITHSONIAN_ROOT" --crops "$CROP_ROOT" --dino-source "$DINO_SOURCE"
-python scripts/infer.py --model dino --checkpoint weights/dino.pt --dino-source "$DINO_SOURCE" --image "$CROP" --output outputs/first_dino.json
+python -m method_b.classification.predict_categories --model dino --checkpoint weights/dino.pt --dino-source "$DINO_SOURCE" --image "$CROP" --output outputs/first_dino.json
 ```
 
 **Expected:** preflight passes and DINO writes one prediction. For this example,

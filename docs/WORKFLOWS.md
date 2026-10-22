@@ -21,21 +21,21 @@ allocated GPU and does not run as part of the software checks.
 
 ## Crop preparation and classifier training
 
-`full_tenengrad.py` reads the original crop geometry, scores focal views using mean
+`prepare_specimen_crops.py` reads the original crop geometry, scores focal views using mean
 squared Sobel gradients, and exports the sharpest plane. It now runs local CPU
 workers using the active Python environment; it does not submit cluster jobs.
 Source slides must be readable at their recorded manifest paths. The zero-plane
 baseline hash must reproduce before a replacement crop is accepted.
 
 ```bash
-python scripts/classification/full_tenengrad.py --baseline "$ZERO_PLANE_CROPS" --assignments "$ASSIGNMENTS" --categories data/category_map_32.csv --output "$NEW_FOCUS_RUN" --workers 4
+python -m method_b.preprocessing.prepare_specimen_crops --baseline "$ZERO_PLANE_CROPS" --assignments "$ASSIGNMENTS" --categories data/category_map_32.csv --output "$NEW_FOCUS_RUN" --workers 4
 ```
 
 Use the resulting `dataset/` as `CROP_ROOT`. For the original broad-class runs:
 
 ```bash
-python scripts/classification/train_swin.py --data "$CROP_ROOT" --assignments "$ASSIGNMENTS" --categories data/category_map_32.csv --broad-map data/fine_to_broad.csv --output "$NEW_SWIN_RUN"
-python scripts/classification/train_dino_finetune.py --data "$CROP_ROOT" --assignments "$ASSIGNMENTS" --categories data/category_map_32.csv --broad-map data/fine_to_broad.csv --output "$NEW_DINO_RUN"
+python -m method_b.classification.train_swin --data "$CROP_ROOT" --assignments "$ASSIGNMENTS" --categories data/category_map_32.csv --broad-map data/fine_to_broad.csv --output "$NEW_SWIN_RUN"
+python -m method_b.classification.train_dinov2 --data "$CROP_ROOT" --assignments "$ASSIGNMENTS" --categories data/category_map_32.csv --broad-map data/fine_to_broad.csv --output "$NEW_DINO_RUN"
 ```
 
 Outputs must be outside this repository. Use `--smoke --epochs 2 --head-epochs 1`
@@ -53,9 +53,9 @@ input and output paths. This defines the retained baseline: fixed annotated ROI
 grid, LoG fusion, frozen split, and detector/classifier checkpoint identities.
 
 ```bash
-python scripts/pipeline_abbas_v1/check_abbas_contract.py
-python scripts/pipeline_abbas_v1/prepare_pipeline_data.py --config config/local.json --plan-only
-python scripts/pipeline_abbas_v1/prepare_pipeline_data.py --config config/local.json --shard 0 --shards 4
+python -m method_b.tests.check_reference_contract
+python -m method_b.preprocessing.prepare_detection_tiles --config config/local.json --plan-only
+python -m method_b.preprocessing.prepare_detection_tiles --config config/local.json --shard 0 --shards 4
 ```
 
 Repeat export for shards 1–3. The baseline region grid is retained for reproducing
@@ -102,8 +102,8 @@ image region. Use the class count matching the checkpoint: 1 for the single-clas
 pipeline or 28 for a Method A model. Supply its recorded SHA-256.
 
 ```bash
-python scripts/detect.py --checkpoint "$DETECTOR" --sha256 "$DETECTOR_SHA256" --image "$REGION" --classes 1 --output outputs/detection
-python scripts/infer.py --model dino --checkpoint weights/dino.pt --dino-source "$DINO_SOURCE" --image "$REGION" --boxes outputs/detection/boxes.json --output outputs/combined.json
+python -m method_b.detection.predict_boxes --checkpoint "$DETECTOR" --sha256 "$DETECTOR_SHA256" --image "$REGION" --classes 1 --output outputs/detection
+python -m method_b.classification.predict_categories --model dino --checkpoint weights/dino.pt --dino-source "$DINO_SOURCE" --image "$REGION" --boxes outputs/detection/boxes.json --output outputs/combined.json
 ```
 
 For Swin change `--model` and `--checkpoint`. Boxes are xyxy pixel coordinates
@@ -118,8 +118,8 @@ identical crops for both classifiers. It requires the external artifacts and
 Spring source listed in the data guide.
 
 ```bash
-python scripts/rfdetr_rgb_classifier/compare_rgb_dino.py --preflight
-python scripts/rfdetr_rgb_classifier/compare_rgb_dino.py
+python -m method_b.evaluation.compare_swin_dinov2 --preflight
+python -m method_b.evaluation.compare_swin_dinov2
 ```
 
 Set `COMPARISON_OUTPUT` to a new directory. The full run requires a GPU and checks
@@ -140,7 +140,7 @@ models. Inspect `VALIDATION.md` for which packaged workflows were exercised.
 ## Replay classifier validation without training
 
 ```bash
-python scripts/pipeline_abbas_v1/compare_classifiers.py --crop-root "$CROP_ROOT" --broad-map data/fine_to_broad.csv --swin-checkpoint weights/swin.pt --dino-checkpoint weights/dino.pt --dino-source "$DINO_SOURCE" --device cpu --output "$NEW_VALIDATION_RUN"
+python -m method_b.evaluation.evaluate_classifiers --crop-root "$CROP_ROOT" --broad-map data/fine_to_broad.csv --swin-checkpoint weights/swin.pt --dino-checkpoint weights/dino.pt --dino-source "$DINO_SOURCE" --device cpu --output "$NEW_VALIDATION_RUN"
 ```
 
 This evaluates the fixed separate-slide validation crops. It does not evaluate
@@ -151,14 +151,14 @@ comparison when that mirrored artifact tree is present.
 
 | Function | Input | Output / checks |
 | --- | --- | --- |
-| `pipeline_common.crop_input` | RGB PIL image, finite xyxy box, margin | 224-square RGB crop; white padding; invalid geometry rejected |
-| `compare_classifiers.load_classifier` | Architecture, trusted checkpoint, DINO source, device | Frozen model and checkpoint-ordered labels; strict weight loading |
-| `compare_classifiers.classify` | Model and PIL images | Per-image probabilities in label order; nonfinite logits rejected |
-| `compare_classifiers.match_boxes` | Prediction and reference box dictionaries | One-to-one greedy IoU matches; no repeated credit |
-| `train_swin.verify_inputs` | Crop root, assignment CSV, category CSV | Verified records, labels, and audit; source hashes and split isolation enforced |
+| `crop_detected_specimens.crop_input` | RGB PIL image, finite xyxy box, margin | 224-square RGB crop; white padding; invalid geometry rejected |
+| `load_classifier.load_classifier` | Architecture, trusted checkpoint, DINO source, device | Frozen model and checkpoint-ordered labels; strict weight loading |
+| `predict_categories.classify` | Model and PIL images | Per-image probabilities in label order; nonfinite logits rejected |
+| `classification_metrics.match_boxes` | Prediction and reference box dictionaries | One-to-one greedy IoU matches; no repeated credit |
+| `input_validation.verify_inputs` | Crop root, assignment CSV, category CSV | Verified records, labels, and audit; source hashes and split isolation enforced |
 | `broad_labels.apply_broad` | Verified records, fine labels, mapping CSV | Copied records with broad targets; original identities and fine labels retained |
 | `specimen_split.apply_split` | Verified records and saved split JSON | Diagnostic memberships; original test set unchanged |
-| `tenengrad_pilot.score` | uint8 RGB array | Finite mean squared Sobel-gradient focus score |
+| `select_focal_plane.score` | uint8 RGB array | Finite mean squared Sobel-gradient focus score |
 
-The helper `tenengrad_pilot.py` is executed by the full extraction orchestrator
+The helper `select_focal_plane.py` is executed by the full extraction orchestrator
 with a supplied record list; it is not a standalone command.

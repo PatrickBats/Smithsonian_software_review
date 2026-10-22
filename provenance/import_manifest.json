@@ -1,68 +1,85 @@
 [
   {
-    "file": "scripts/classification/train_swin.py",
+    "file": "method_b/classification/train_swin.py",
     "origin": "main:8649e550",
-    "original_sha256": "df872fce19ca93ed0c0a78c355f364777ac8006dd4b341a82efa15711e9349dd"
+    "original_sha256": "df872fce19ca93ed0c0a78c355f364777ac8006dd4b341a82efa15711e9349dd",
+    "original_package_file": "scripts/classification/train_swin.py"
   },
   {
-    "file": "scripts/classification/train_dino_finetune.py",
+    "file": "method_b/classification/train_dinov2.py",
     "origin": "main:8649e550",
-    "original_sha256": "c1c4ff144b70cb659eb8870c920b91d6bebbb4d9ff108dc0bc51ffb045ca97db"
+    "original_sha256": "c1c4ff144b70cb659eb8870c920b91d6bebbb4d9ff108dc0bc51ffb045ca97db",
+    "original_package_file": "scripts/classification/train_dino_finetune.py"
   },
   {
-    "file": "scripts/classification/broad_labels.py",
+    "file": "method_b/preprocessing/category_mapping.py",
     "origin": "main:8649e550",
-    "original_sha256": "3cca4155a47439e0630c81a75c9e9625234a51718ac0321599fc62ef9773f33d"
+    "original_sha256": "3cca4155a47439e0630c81a75c9e9625234a51718ac0321599fc62ef9773f33d",
+    "original_package_file": "scripts/classification/broad_labels.py"
   },
   {
-    "file": "scripts/classification/specimen_split.py",
+    "file": "method_b/preprocessing/data_splits.py",
     "origin": "main:8649e550",
-    "original_sha256": "4d9b4b9eb9c23c7d363b62509ad3c06c75fcb0cdba89373c5e78b23211c095df"
+    "original_sha256": "4d9b4b9eb9c23c7d363b62509ad3c06c75fcb0cdba89373c5e78b23211c095df",
+    "original_package_file": "scripts/classification/specimen_split.py"
   },
   {
-    "file": "scripts/pipeline_abbas_v1/pipeline_common.py",
+    "file": "method_b/utils/input_validation.py",
     "origin": "local audited pipeline based on a4d53fe",
-    "original_sha256": "bcb9fcf146012b08682d77bf3e7d91ce78a2ce655d99025f5b5ee4ddfaed611c"
+    "original_sha256": "bcb9fcf146012b08682d77bf3e7d91ce78a2ce655d99025f5b5ee4ddfaed611c",
+    "original_package_file": "scripts/pipeline_abbas_v1/pipeline_common.py",
+    "derived_files": [
+      "method_b/utils/file_io.py",
+      "method_b/pipeline/crop_detected_specimens.py"
+    ]
   },
   {
-    "file": "scripts/pipeline_abbas_v1/prepare_pipeline_data.py",
+    "file": "method_b/preprocessing/prepare_detection_tiles.py",
     "origin": "local audited pipeline based on a4d53fe",
-    "original_sha256": "d3658ec4e53cee2594f7c90d707cbad7039ccaa5b0136f8763173964f00cf2fd"
+    "original_sha256": "d3658ec4e53cee2594f7c90d707cbad7039ccaa5b0136f8763173964f00cf2fd",
+    "original_package_file": "scripts/pipeline_abbas_v1/prepare_pipeline_data.py"
   },
   {
-    "file": "scripts/pipeline_abbas_v1/spring_focus_stack.py",
+    "file": "method_b/reference/Smithsonian_Fossil_Sp26/focus_fusion.py",
     "origin": "local audited pipeline based on a4d53fe",
-    "original_sha256": "f402b5efdbb99b2cdb2ddfb61a05611bf5e0c311178cd5404bf87ec9b9611c72"
+    "original_sha256": "f402b5efdbb99b2cdb2ddfb61a05611bf5e0c311178cd5404bf87ec9b9611c72",
+    "original_package_file": "scripts/pipeline_abbas_v1/spring_focus_stack.py"
   },
   {
-    "file": "scripts/pipeline_abbas_v1/spring_nms.py",
+    "file": "method_b/reference/Smithsonian_Fossil_Sp26/detection_merging.py",
     "origin": "local audited pipeline based on a4d53fe",
-    "original_sha256": "9bac240e6ecf57f349e3fd4f3c20d88cb9e6774563d1cc8e614cd5c9466cd8a8"
+    "original_sha256": "9bac240e6ecf57f349e3fd4f3c20d88cb9e6774563d1cc8e614cd5c9466cd8a8",
+    "original_package_file": "scripts/pipeline_abbas_v1/spring_nms.py"
   },
   {
-    "file": "scripts/pipeline_abbas_v1/spring_types.py",
+    "file": "method_b/reference/Smithsonian_Fossil_Sp26/detection_types.py",
     "origin": "local audited pipeline based on a4d53fe",
-    "original_sha256": "e162b74c41fb35b8f70c261fca345bf205a68b24a3728c18d29832db139e5f2c"
+    "original_sha256": "e162b74c41fb35b8f70c261fca345bf205a68b24a3728c18d29832db139e5f2c",
+    "original_package_file": "scripts/pipeline_abbas_v1/spring_types.py"
   },
   {
-    "file": "scripts/pipeline_abbas_v1/train_pipeline_detector.py",
+    "file": "method_b/detection/train_rfdetr.py",
     "origin": "local audited pipeline based on a4d53fe",
-    "original_sha256": "539979f54ba408a63ad3e991daf7d1af39887be551f4d3c5d54b777b2a231fec"
+    "original_sha256": "539979f54ba408a63ad3e991daf7d1af39887be551f4d3c5d54b777b2a231fec",
+    "original_package_file": "scripts/pipeline_abbas_v1/train_pipeline_detector.py"
   },
   {
-    "file": "scripts/pipeline_abbas_v1/evaluate_pipeline.py",
+    "file": "method_b/evaluation/evaluate_pipeline.py",
     "origin": "local audited pipeline based on a4d53fe",
-    "original_sha256": "2768f1f7e9c197807ae71c76f08aa41d8985a28cc3233dd3fbba4e2c8a7332c0"
+    "original_sha256": "2768f1f7e9c197807ae71c76f08aa41d8985a28cc3233dd3fbba4e2c8a7332c0",
+    "original_package_file": "scripts/pipeline_abbas_v1/evaluate_pipeline.py"
   },
   {
-    "file": "scripts/pipeline_abbas_v1/check_abbas_contract.py",
+    "file": "method_b/tests/check_reference_contract.py",
     "origin": "local audited pipeline based on a4d53fe",
-    "original_sha256": "e4c4b08192fc17a53a46098aa9a12b47be8aa3c43fc98acf3747e5a224ce086d"
+    "original_sha256": "e4c4b08192fc17a53a46098aa9a12b47be8aa3c43fc98acf3747e5a224ce086d",
+    "original_package_file": "scripts/pipeline_abbas_v1/check_abbas_contract.py"
   },
   {
-    "file": "scripts/pipeline_abbas_v1/test_classifier_handoff.py",
+    "file": "method_b/tests/check_pipeline_contract.py",
     "origin": "local audited pipeline based on a4d53fe",
-    "original_sha256": "c58eb3dd5d5142827380a95e8343f6e7023b8ca43db758c7b1037e87cf40f6d9"
+    "original_sha256": "c58eb3dd5d5142827380a95e8343f6e7023b8ca43db758c7b1037e87cf40f6d9",
+    "original_package_file": "scripts/pipeline_abbas_v1/test_classifier_handoff.py"
   },
   {
     "file": "scripts/method_a_focus_stack_v1/focus_helpers.py",
@@ -180,19 +197,22 @@
     "original_sha256": "4b6319b07b325414a48c187e8f0e8fc19d5d2e512f5d7ce47bd8a9bdc89570af"
   },
   {
-    "file": "scripts/rfdetr_rgb_classifier/compare_color_inputs.py",
+    "file": "method_b/evaluation/compare_rgb_bgr_inputs.py",
     "origin": "PR8:2d22ae53",
-    "original_sha256": "6d5aa4b102d9268a63ff4b716048f1e05da2076aca51f3300c95338377cb2f1a"
+    "original_sha256": "6d5aa4b102d9268a63ff4b716048f1e05da2076aca51f3300c95338377cb2f1a",
+    "original_package_file": "scripts/rfdetr_rgb_classifier/compare_color_inputs.py"
   },
   {
-    "file": "scripts/rfdetr_rgb_classifier/compare_bestplane.py",
+    "file": "method_b/pipeline/reference_slide_pipeline.py",
     "origin": "PR8:2d22ae53",
-    "original_sha256": "73e6b1913ba9e5fc3b55fa9d422642fdbbf75930dd1d2a09109b463b805824ca"
+    "original_sha256": "73e6b1913ba9e5fc3b55fa9d422642fdbbf75930dd1d2a09109b463b805824ca",
+    "original_package_file": "scripts/rfdetr_rgb_classifier/compare_bestplane.py"
   },
   {
-    "file": "scripts/rfdetr_rgb_classifier/compare_rgb_dino.py",
+    "file": "method_b/evaluation/compare_swin_dinov2.py",
     "origin": "PR8:2d22ae53",
-    "original_sha256": "4e39d04366c362af16eb573ea778edd7d3ad846b2c6f16bf76b207c329de9c56"
+    "original_sha256": "4e39d04366c362af16eb573ea778edd7d3ad846b2c6f16bf76b207c329de9c56",
+    "original_package_file": "scripts/rfdetr_rgb_classifier/compare_rgb_dino.py"
   },
   {
     "file": "reports/method_a_data_variants_2026-10-18/recorded_comparison.json",
@@ -255,18 +275,21 @@
     "original_sha256": "626623df1d2750bd800f57af981ae4e39051549215e6092b3619b54a9f2e32f8"
   },
   {
-    "file": "scripts/classification/full_tenengrad.py",
+    "file": "method_b/preprocessing/prepare_specimen_crops.py",
     "origin": "main:8649e550",
-    "original_sha256": "d5a87dd00ae1dedd12692ee2b978ff49b4a5075584d155ad4551cb7f90d8b084"
+    "original_sha256": "d5a87dd00ae1dedd12692ee2b978ff49b4a5075584d155ad4551cb7f90d8b084",
+    "original_package_file": "scripts/classification/full_tenengrad.py"
   },
   {
-    "file": "scripts/classification/tenengrad_pilot.py",
+    "file": "method_b/preprocessing/select_focal_plane.py",
     "origin": "main:8649e550",
-    "original_sha256": "ae7085647f1ae5cec8375a230d4940eb21b376010340dda5ad64e6d362dfb2b4"
+    "original_sha256": "ae7085647f1ae5cec8375a230d4940eb21b376010340dda5ad64e6d362dfb2b4",
+    "original_package_file": "scripts/classification/tenengrad_pilot.py"
   },
   {
-    "file": "scripts/pipeline_abbas_v1/compare_classifiers.py",
+    "file": "method_b/evaluation/evaluate_classifiers.py",
     "origin": "audited classifier handoff implementation",
-    "original_sha256": "187401e5a3abe3d79247d1e2024f1154abc28415ba79d20afa5111c765be1216"
+    "original_sha256": "187401e5a3abe3d79247d1e2024f1154abc28415ba79d20afa5111c765be1216",
+    "original_package_file": "scripts/pipeline_abbas_v1/compare_classifiers.py"
   }
 ]

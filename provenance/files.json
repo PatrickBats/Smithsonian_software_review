@@ -15,21 +15,6 @@
     "bytes": 94
   },
   {
-    "file": "NOTICE.md",
-    "sha256": "4b5f7d29aa5e0944f453f3e46dd63a4718a54d5e936efadb89d0a5533cb5acdb",
-    "bytes": 1164
-  },
-  {
-    "file": "README.md",
-    "sha256": "0e20dfa30be5fb79f53aa7dc22fd405dc01af51d263c665eec60ea539606446e",
-    "bytes": 4958
-  },
-  {
-    "file": "VALIDATION.md",
-    "sha256": "f3e49715b64fb05f984aa93038969b83a8188fdbd8f6faa39306bfc54c2185ec",
-    "bytes": 3405
-  },
-  {
     "file": "config/checkpoints.json",
     "sha256": "cd133a803ce30b5e0035e9814fa65b9200ac089cf93b6107536a317830db21bc",
     "bytes": 1147
@@ -71,8 +56,8 @@
   },
   {
     "file": "docs/QUICKSTART.md",
-    "sha256": "cf5e565472423b6299713953ad5bcc5b16a9e55f505fc15761aefb233d122dd8",
-    "bytes": 8312
+    "sha256": "c40c1be46b1686e9d030705a8cea96d95b44f7d844df6849655ad523b7be6346",
+    "bytes": 8370
   },
   {
     "file": "docs/RESULTS.md",
@@ -81,8 +66,8 @@
   },
   {
     "file": "docs/WORKFLOWS.md",
-    "sha256": "f4869b98112877e53d1c0bdc483cde6d68de6cf1b35a873241497d5a125de76b",
-    "bytes": 9155
+    "sha256": "0ba45fb8fe16de36a9d6c7854e4177b348f9ef0961c8cc0443c4894a005f43ab",
+    "bytes": 9203
   },
   {
     "file": "examples/crops.json",
@@ -90,9 +75,244 @@
     "bytes": 965
   },
   {
+    "file": "method_b/__init__.py",
+    "sha256": "8cc134268a312d42505c10638ae575522aa7292ca3a67edf89d38676856c189a",
+    "bytes": 49
+  },
+  {
+    "file": "method_b/classification/__init__.py",
+    "sha256": "a7816ce7a8b19329ef7f884adce3b8984274aa514c441a0493ee8fa0fb138f95",
+    "bytes": 39
+  },
+  {
+    "file": "method_b/classification/crop_dataset.py",
+    "sha256": "81ece3294903b30eb9e2d5a46316a971de3b21da9c780e9baca569232d4afbff",
+    "bytes": 2352
+  },
+  {
+    "file": "method_b/classification/load_classifier.py",
+    "sha256": "815b0e21d5d110bacb9943ca03e23f572ab3625382ce4d6fbfe4ca8d6243cd07",
+    "bytes": 2383
+  },
+  {
+    "file": "method_b/classification/predict_categories.py",
+    "sha256": "2261bf2a594fec81c31e6e6b7f3a77961401164956bd061b05dc9c1f454f4591",
+    "bytes": 4839
+  },
+  {
+    "file": "method_b/classification/train_dinov2.py",
+    "sha256": "4496af01b7ad66c307985b775082e0ad1c904bf951e1069384e3bd85d0c0a345",
+    "bytes": 17853
+  },
+  {
+    "file": "method_b/classification/train_swin.py",
+    "sha256": "903bc22bab6d798406a176621ecd6e8c8bfc8160bfb7a538c83e2569417d1cf4",
+    "bytes": 14133
+  },
+  {
+    "file": "method_b/CODE_STRUCTURE.md",
+    "sha256": "f578a1d641e47a03699e196166889471800bb160acfa61160e75b2a55e0c8e32",
+    "bytes": 1597
+  },
+  {
+    "file": "method_b/detection/__init__.py",
+    "sha256": "505de95c48fd752c56545057aa12ebdb7e39ad4b341ae3c1d52b4909ea077816",
+    "bytes": 34
+  },
+  {
+    "file": "method_b/detection/predict_boxes.py",
+    "sha256": "f9e850b4181ba34983e005e977c9bef80d2d2963bb4507cadb075c80ca967b57",
+    "bytes": 2580
+  },
+  {
+    "file": "method_b/detection/train_rfdetr.py",
+    "sha256": "eece26125051c925efecefa5848171f1bc5a2552f173db90a05a5adb34e2dcca",
+    "bytes": 6266
+  },
+  {
+    "file": "method_b/evaluation/__init__.py",
+    "sha256": "9032b72b263c5760b6ff35e38094bd9f75de0ac668118139e0ab64c01c0b8940",
+    "bytes": 35
+  },
+  {
+    "file": "method_b/evaluation/classification_metrics.py",
+    "sha256": "b4652e0dc8b9a997ccfa9d329e4fabcf8ed9cc6d031faaca5013606c3ba47400",
+    "bytes": 5137
+  },
+  {
+    "file": "method_b/evaluation/compare_rgb_bgr_inputs.py",
+    "sha256": "aa7dad0831c4f6c20483ce1418ea8aa02c92141f30a5cef4b61388ce596dec66",
+    "bytes": 14944
+  },
+  {
+    "file": "method_b/evaluation/compare_swin_dinov2.py",
+    "sha256": "f871c854facc02ff058ab800adae6976ff39dfc7c075b437ff0fb53b35c24332",
+    "bytes": 17747
+  },
+  {
+    "file": "method_b/evaluation/evaluate_classifiers.py",
+    "sha256": "7b80bc0d2b01c2c563fe9606476d0eb4ba2f0fd584521c4d4116a28e1fa6ec1f",
+    "bytes": 9771
+  },
+  {
+    "file": "method_b/evaluation/evaluate_pipeline.py",
+    "sha256": "7620d6a90a820ae8868bdeb9d0a117b8cf022fc3984741346a567fec5738e17e",
+    "bytes": 10237
+  },
+  {
+    "file": "method_b/evaluation/export_results.py",
+    "sha256": "f31c86cd860b6288a8b8311f41e51c51195d05bf318fc11c28f4cddf6becbf66",
+    "bytes": 2290
+  },
+  {
+    "file": "method_b/notebooks/demo.ipynb",
+    "sha256": "5e1bcdb3402355897a4f06f63321de36b8b372420fd3bfd1a0fe7f613cc9ae1e",
+    "bytes": 8346
+  },
+  {
+    "file": "method_b/pipeline/__init__.py",
+    "sha256": "c7b2b8404b2d043fe647e2b6757298ed06c6dd1b9d8da30ff16e6d0331a7cc10",
+    "bytes": 33
+  },
+  {
+    "file": "method_b/pipeline/crop_detected_specimens.py",
+    "sha256": "36168eb3c868e58c30c0a57bc244683919fd259dd466b00bc3c5a406f164d607",
+    "bytes": 2422
+  },
+  {
+    "file": "method_b/pipeline/detect_and_classify.py",
+    "sha256": "755bf2a33b14d120caba84f9492ba79cb979e3434cecc11e4e44b234075bde59",
+    "bytes": 3449
+  },
+  {
+    "file": "method_b/pipeline/reference_slide_pipeline.py",
+    "sha256": "05f5f003f4eced92fe17cffbc5f26abeef2485015680b55def81cc258c1a502c",
+    "bytes": 12708
+  },
+  {
+    "file": "method_b/preprocessing/__init__.py",
+    "sha256": "39139dc762563199504305d6df53949cf47d77e27426a73d9af218c801be406f",
+    "bytes": 38
+  },
+  {
+    "file": "method_b/preprocessing/category_mapping.py",
+    "sha256": "7da63b68510f8c60a0422ccde4012eeca7d032afe6db2ff84317d1981f479b39",
+    "bytes": 2168
+  },
+  {
+    "file": "method_b/preprocessing/data_splits.py",
+    "sha256": "6040710e848ee410bd212d586ea049f8c864136d64f6c0e756245a7d2cb1527a",
+    "bytes": 2507
+  },
+  {
+    "file": "method_b/preprocessing/prepare_detection_tiles.py",
+    "sha256": "7d5df679096f789aba7b1893f644e94be40dfe5ba91e92a6039114dede1cdb77",
+    "bytes": 13510
+  },
+  {
+    "file": "method_b/preprocessing/prepare_specimen_crops.py",
+    "sha256": "6005d28da3ef0b93230b7c59ce2c6c6017b2ea3c37769a6b6efd5bad3627647b",
+    "bytes": 13139
+  },
+  {
+    "file": "method_b/preprocessing/select_focal_plane.py",
+    "sha256": "09ed7f5fa760de2e96aeebc5e73166c2c10fe56a66b284357f3e4ff41c9cbcb2",
+    "bytes": 7173
+  },
+  {
+    "file": "method_b/README.md",
+    "sha256": "6e12decae9d4ec984d034c01cb654f2dd7c8f6f67ec3211ff5aa25557d0ea55d",
+    "bytes": 10419
+  },
+  {
+    "file": "method_b/reference/__init__.py",
+    "sha256": "6d60167b65b623bc431c0734b5d2184385f98b9971cc0753841c1267f4e12422",
+    "bytes": 34
+  },
+  {
+    "file": "method_b/reference/Smithsonian_Fossil_Sp26/__init__.py",
+    "sha256": "b9674f78e65d094704b0e324ceb3f18b23fec82de26d39155fa12e61d119f9f3",
+    "bytes": 58
+  },
+  {
+    "file": "method_b/reference/Smithsonian_Fossil_Sp26/detection_merging.py",
+    "sha256": "9ca08302fe04fecde01ad4041f3cda0357328edb811667b4c1d9db2452360ea2",
+    "bytes": 6828
+  },
+  {
+    "file": "method_b/reference/Smithsonian_Fossil_Sp26/detection_types.py",
+    "sha256": "6c627e887ac45efad342f44f7258e4b3736f42bb934bbf608ec4db5653d51620",
+    "bytes": 883
+  },
+  {
+    "file": "method_b/reference/Smithsonian_Fossil_Sp26/focus_fusion.py",
+    "sha256": "93b7f8a053a0720682ec36b4400e455e6adbc9317281626467d0bb6edb62c186",
+    "bytes": 2477
+  },
+  {
+    "file": "method_b/requirements.txt",
+    "sha256": "e3427f2ff4c4dbac00c118dc29c2d38ebb0b2cbc12e3c72ad6b754010c41a792",
+    "bytes": 384
+  },
+  {
+    "file": "method_b/tests/__init__.py",
+    "sha256": "f8db006de91036532a63f41df12cb1a0092a5ec8b414e502e4a7db16b1afc3dd",
+    "bytes": 30
+  },
+  {
+    "file": "method_b/tests/check_pipeline_contract.py",
+    "sha256": "77ac95bde3e2ae2c158e21eae506313ff2b039d2f293a254a72d8b5c93f8078f",
+    "bytes": 2242
+  },
+  {
+    "file": "method_b/tests/check_reference_contract.py",
+    "sha256": "72cd2c2ef27c08d6d8e924d3b75588cfa65a47203a66847c8af30ab42d8199bb",
+    "bytes": 3082
+  },
+  {
+    "file": "method_b/tests/test_pipeline_cli.py",
+    "sha256": "93a7344ad462c76144add6e2aeb6ea5f1af7b4588518077f25856a00f772d887",
+    "bytes": 3267
+  },
+  {
+    "file": "method_b/tests/test_predict_categories.py",
+    "sha256": "f0ad143a9467b90b0f3e932f5fc0f7232ec512688a33f29a5dce282e93afd442",
+    "bytes": 2481
+  },
+  {
+    "file": "method_b/utils/__init__.py",
+    "sha256": "75babd32852265fc2c5f9296fc4a154967fc39853937b8bdf6f0d66a6c2780c0",
+    "bytes": 30
+  },
+  {
+    "file": "method_b/utils/file_io.py",
+    "sha256": "d6b380d658fff840b4fa0f54e12fb5e8c5f97273543d18d88d0e9bae97fcd4ba",
+    "bytes": 4727
+  },
+  {
+    "file": "method_b/utils/input_validation.py",
+    "sha256": "f63065183402f30d8a591bab8503f3421325021c969b5f8e64eb486dc1ac510a",
+    "bytes": 8819
+  },
+  {
+    "file": "method_b/VALIDATION.md",
+    "sha256": "692d3690cf935d47775d308125e70d6f8699faa4ba3b38208a79789c821408ee",
+    "bytes": 1929
+  },
+  {
+    "file": "NOTICE.md",
+    "sha256": "4b5f7d29aa5e0944f453f3e46dd63a4718a54d5e936efadb89d0a5533cb5acdb",
+    "bytes": 1164
+  },
+  {
     "file": "provenance/import_manifest.json",
-    "sha256": "22d07adb1452db8add144d0608b4296ceea340f2b4a0d7102d004b9852a64d18",
-    "bytes": 10693
+    "sha256": "d709b3a4f6fcb24f20de58a575ef270540673bfc3490caf10067c94d3c2251e7",
+    "bytes": 12282
+  },
+  {
+    "file": "README.md",
+    "sha256": "8c7128885e438f59c1abaa7d1c537e0dc4fee182e538091eba09f000f01923c3",
+    "bytes": 5095
   },
   {
     "file": "reports/method_a_data_variants_2026-10-18/a1_validation.json",
@@ -180,44 +400,14 @@
     "bytes": 2105
   },
   {
-    "file": "scripts/classification/broad_labels.py",
-    "sha256": "5f612b86c140c1cf8b2783936ddd6dfe33918781a777aa4cca777d106e3aa95e",
-    "bytes": 1623
-  },
-  {
-    "file": "scripts/classification/full_tenengrad.py",
-    "sha256": "5ddb7c7bde7c8d2f625936ada24a21da0c20b5bd73097df911e9f183e81da1ef",
-    "bytes": 11111
-  },
-  {
-    "file": "scripts/classification/specimen_split.py",
-    "sha256": "0516ba37ac046c2cb5a4e7468ec25a6c2fcb0baf1ecacce3bad2c3af8aff1128",
-    "bytes": 2025
-  },
-  {
-    "file": "scripts/classification/tenengrad_pilot.py",
-    "sha256": "ae7085647f1ae5cec8375a230d4940eb21b376010340dda5ad64e6d362dfb2b4",
-    "bytes": 6024
-  },
-  {
-    "file": "scripts/classification/train_dino_finetune.py",
-    "sha256": "16144d64f6055ad97470a62f703650543fb5e5cba510984978233329c67a59ec",
-    "bytes": 15415
-  },
-  {
-    "file": "scripts/classification/train_swin.py",
-    "sha256": "6d55dfd2735216b8056d7668d1c9993c444182be904dd58c9379156283cbc29c",
-    "bytes": 23546
-  },
-  {
     "file": "scripts/detect.py",
-    "sha256": "bf7803a6462c7f5a933d5ac9b3992078e0a79b395966012a6ca50d72cf30e9c1",
-    "bytes": 2379
+    "sha256": "23c2658bc917a06616755b539daf27b49f98610378fb38c40c053340881fe721",
+    "bytes": 277
   },
   {
     "file": "scripts/infer.py",
-    "sha256": "ee036a16d523f8c7e3fab4a0531f3555dc009369fc0819634d74105f81d73a0e",
-    "bytes": 3388
+    "sha256": "b06d6bb5b8bf0af75be3048dfae8641e2d1938fbcca7c53a1175dec9fd316ca6",
+    "bytes": 313
   },
   {
     "file": "scripts/method_a/data_variants/audit_plan.py",
@@ -335,56 +525,6 @@
     "bytes": 4716
   },
   {
-    "file": "scripts/pipeline_abbas_v1/check_abbas_contract.py",
-    "sha256": "573019d187e8b02e359ef15b0ea1b9fee462a33c13e8f5bb80a1faf84c2c7b49",
-    "bytes": 1964
-  },
-  {
-    "file": "scripts/pipeline_abbas_v1/compare_classifiers.py",
-    "sha256": "fe47f2e7bf14883128cfc3af400544ed8871e350dcb6a5c57d4724388e5bcf53",
-    "bytes": 12294
-  },
-  {
-    "file": "scripts/pipeline_abbas_v1/evaluate_pipeline.py",
-    "sha256": "dc47ee31994ef31159d0195b5821e66e36575d1ea54a49a4ed445c835f9074d9",
-    "bytes": 9502
-  },
-  {
-    "file": "scripts/pipeline_abbas_v1/pipeline_common.py",
-    "sha256": "1f3e8a3075ee37fa20b8ee7c884736bf167fd1483d9cdab227d22c8785e5c462",
-    "bytes": 3232
-  },
-  {
-    "file": "scripts/pipeline_abbas_v1/prepare_pipeline_data.py",
-    "sha256": "15ae1883ad606ce0813c416b739a595dcde32a016a1a809ae76a0f89697d42c4",
-    "bytes": 11891
-  },
-  {
-    "file": "scripts/pipeline_abbas_v1/spring_focus_stack.py",
-    "sha256": "cc964808f9d760b2201b448fe5ee85f28c244c3d50f860e9df86c289544ffb3e",
-    "bytes": 2142
-  },
-  {
-    "file": "scripts/pipeline_abbas_v1/spring_nms.py",
-    "sha256": "206f1981c1d0267dddc3269b0220b8cb40a28fb0420b8310d57f6c40331563ae",
-    "bytes": 6447
-  },
-  {
-    "file": "scripts/pipeline_abbas_v1/spring_types.py",
-    "sha256": "51d437818e33efbfbed89e508e3b98f8c0c2fa4dbdd3d4bc57f7428774393168",
-    "bytes": 548
-  },
-  {
-    "file": "scripts/pipeline_abbas_v1/test_classifier_handoff.py",
-    "sha256": "1d168779e58cb9e4db81e4352e593297bf9030b38c70bd55ece6ea9b04c6a3de",
-    "bytes": 1516
-  },
-  {
-    "file": "scripts/pipeline_abbas_v1/train_pipeline_detector.py",
-    "sha256": "1d212a8808d88cb15e296f3a6a9e2a67e9458276326fb82e7b550d21a9b8bbbb",
-    "bytes": 5689
-  },
-  {
     "file": "scripts/preflight.py",
     "sha256": "01efbba10ea177dbb82bc4931da4b128d12e28f6ddcc9efad470a417c03c86cc",
     "bytes": 1555
@@ -395,23 +535,13 @@
     "bytes": 3301
   },
   {
-    "file": "scripts/rfdetr_rgb_classifier/compare_bestplane.py",
-    "sha256": "5087b50cfef7b464f9de758024da85784593daa7d9d888e16490cf80d593fa07",
-    "bytes": 10891
-  },
-  {
-    "file": "scripts/rfdetr_rgb_classifier/compare_color_inputs.py",
-    "sha256": "08dd5990204b614ad9c658885622263195b579780c2d302f7b4ed1e99814f045",
-    "bytes": 12749
-  },
-  {
-    "file": "scripts/rfdetr_rgb_classifier/compare_rgb_dino.py",
-    "sha256": "5093029064ad5a7d247e17d1c75175a75cc6142a43f9e49a1612453c1c9078d9",
-    "bytes": 15755
-  },
-  {
     "file": "tests/test_contracts.py",
-    "sha256": "1f971eaf32186a0206c07ff74ff501ea41b54ff0eb76e62995957745fa331419",
-    "bytes": 2061
+    "sha256": "0c71f82a056d1e35525af17b206003fea2a7932ba8840b8037cc7be34f3e94d0",
+    "bytes": 2017
+  },
+  {
+    "file": "VALIDATION.md",
+    "sha256": "f3e49715b64fb05f984aa93038969b83a8188fdbd8f6faa39306bfc54c2185ec",
+    "bytes": 3405
   }
 ]
