@@ -13,24 +13,28 @@ git clone https://github.com/PatrickBats/Smithsonian_software_review.git
 cd Smithsonian_software_review
 python3 -m venv .venv
 source .venv/bin/activate
+python -m pip install --no-deps -e .
 python scripts/check_repository.py
 python -m unittest discover -s tests -v
-python -m unittest discover -s scripts/method_a/data_variants/tests -v
+python -m unittest discover -s src/method_a/tests -v
 python scripts/results.py --output outputs/first_comparison
 ```
 
-**Expected:** the repository check passes, the two test suites report 3 and 15
-passing tests, and `outputs/first_comparison/` contains:
+**Expected:** the repository check passes, the two test suites report 3 and 27
+passing tests (30 total), and `outputs/first_comparison/` contains:
 
 | File | What to open it for |
 | --- | --- |
 | `classification.svg` | View the classifier accuracy chart in a browser |
 | `classification.csv` | Swin/DINO accuracy and macro-F1 by validation split |
-| `detection.csv` | A1/A2/A3 detected and correctly identified target counts |
+| `detection.csv` | Baseline and A1/A2/A3 detected and correctly identified target counts |
 | `rgb_comparison.csv` | Swin/DINO comparison on identical detector crops |
 
 These commands regenerate outputs from recorded aggregate metrics. They do not
 rerun the models. See [the results guide](RESULTS.md) for inference replay commands.
+
+For Method A, continue with the [Method A worked examples](../src/method_a/examples/README.md):
+first the four-row CSV, then a 28-class detector on an authorized image region.
 
 ## 2. Run Swin on a real specimen
 

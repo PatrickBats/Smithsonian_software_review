@@ -65,119 +65,149 @@
     "original_sha256": "c58eb3dd5d5142827380a95e8343f6e7023b8ca43db758c7b1037e87cf40f6d9"
   },
   {
-    "file": "scripts/method_a_focus_stack_v1/focus_helpers.py",
+    "file": "src/method_a/imaging/geometry.py",
     "origin": "PR5:9629be03",
-    "original_sha256": "f05d7051ce0337b47cd13f0a6af3d1ca339df9628ed292c554b8f015d552ef94"
+    "original_sha256": "f05d7051ce0337b47cd13f0a6af3d1ca339df9628ed292c554b8f015d552ef94",
+    "original_path": "scripts/method_a_focus_stack_v1/focus_helpers.py",
+    "extracted_symbols": [
+      "geometry"
+    ]
   },
   {
-    "file": "scripts/method_a_focus_stack_v1/plan_grid.py",
+    "file": "src/method_a/preparation/grid.py",
     "origin": "PR5:9629be03",
-    "original_sha256": "08d77fad1cdac79b1b7b8b9cd26493ffe48c46f2d0dce37e425d706d8ec7dcc5"
+    "original_sha256": "08d77fad1cdac79b1b7b8b9cd26493ffe48c46f2d0dce37e425d706d8ec7dcc5",
+    "original_path": "scripts/method_a_focus_stack_v1/plan_grid.py"
   },
   {
-    "file": "scripts/method_a_focus_stack_v1/build_linked_dataset.py",
+    "file": "src/method_a/preparation/grid_dataset.py",
     "origin": "PR5:9629be03",
-    "original_sha256": "a1207674e946f95b62602bcd537886a8cf83677cd5ec72fa1587dcf202b5b8d5"
+    "original_sha256": "a1207674e946f95b62602bcd537886a8cf83677cd5ec72fa1587dcf202b5b8d5",
+    "original_path": "scripts/method_a_focus_stack_v1/build_linked_dataset.py"
   },
   {
-    "file": "scripts/method_a_focus_stack_v1/build_inputs.py",
+    "file": "src/method_a/preparation/inputs.py",
     "origin": "PR5:9629be03",
-    "original_sha256": "357c0fda1d6b445c3835f0c6ac64b95b13a391a9ea537b42c46de422a4bd3226"
+    "original_sha256": "357c0fda1d6b445c3835f0c6ac64b95b13a391a9ea537b42c46de422a4bd3226",
+    "original_path": "scripts/method_a_focus_stack_v1/build_inputs.py"
   },
   {
-    "file": "scripts/method_a_focus_stack_v1/spring_nms.py",
+    "file": "src/method_a/evaluation/deduplication.py",
     "origin": "PR5:9629be03",
-    "original_sha256": "9bac240e6ecf57f349e3fd4f3c20d88cb9e6774563d1cc8e614cd5c9466cd8a8"
+    "original_sha256": "9bac240e6ecf57f349e3fd4f3c20d88cb9e6774563d1cc8e614cd5c9466cd8a8",
+    "original_path": "scripts/method_a_focus_stack_v1/spring_nms.py"
   },
   {
-    "file": "scripts/method_a_focus_stack_v1/evaluate_validation.py",
+    "file": "src/method_a/evaluation/grid.py",
     "origin": "PR5:9629be03",
-    "original_sha256": "694713dd735ccf0b6fd3b46d23f97d00fc19d56e65f6f81123c079ca49d067b3"
+    "original_sha256": "694713dd735ccf0b6fd3b46d23f97d00fc19d56e65f6f81123c079ca49d067b3",
+    "original_path": "scripts/method_a_focus_stack_v1/evaluate_validation.py"
   },
   {
-    "file": "scripts/method_a_focus_stack_v1/spring_types.py",
+    "file": "src/method_a/evaluation/detection_types.py",
     "origin": "PR5:9629be03",
-    "original_sha256": "e162b74c41fb35b8f70c261fca345bf205a68b24a3728c18d29832db139e5f2c"
+    "original_sha256": "e162b74c41fb35b8f70c261fca345bf205a68b24a3728c18d29832db139e5f2c",
+    "original_path": "scripts/method_a_focus_stack_v1/spring_types.py"
   },
   {
-    "file": "scripts/method_a_focus_stack_v1/train_detector.py",
+    "file": "src/method_a/training/grid.py",
     "origin": "PR5:9629be03",
-    "original_sha256": "7acb35e42ce39aa9b849fc7a05af1c201e79dfd19d69d68fe42657189a3b4347"
+    "original_sha256": "7acb35e42ce39aa9b849fc7a05af1c201e79dfd19d69d68fe42657189a3b4347",
+    "original_path": "scripts/method_a_focus_stack_v1/train_detector.py"
   },
   {
-    "file": "scripts/method_a/data_variants/common.py",
+    "file": "src/method_a/storage.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "e6862eb56a256f16a62b9a08a111d3b8a6d8065fcb992a7069ce57593872e462"
+    "original_sha256": "e6862eb56a256f16a62b9a08a111d3b8a6d8065fcb992a7069ce57593872e462",
+    "original_path": "scripts/method_a/data_variants/common.py"
   },
   {
-    "file": "scripts/method_a/data_variants/focus_helpers.py",
+    "file": "src/method_a/imaging/focus_fusion.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "0a7df02acbe6f6c89ce31059581d8153af7a2fc9643a0ffa90d31cfe6256e3ef"
+    "original_sha256": "0a7df02acbe6f6c89ce31059581d8153af7a2fc9643a0ffa90d31cfe6256e3ef",
+    "original_path": "scripts/method_a/data_variants/focus_helpers.py",
+    "extracted_symbols": [
+      "fused_tile",
+      "save_png_no_replace"
+    ]
   },
   {
-    "file": "scripts/method_a/data_variants/evaluate.py",
+    "file": "src/method_a/evaluation/known_references.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "a30db5b5f9b7c592bfe9101dcc61617acf3136dd6fc2da16897af4f9ce4c963b"
+    "original_sha256": "a30db5b5f9b7c592bfe9101dcc61617acf3136dd6fc2da16897af4f9ce4c963b",
+    "original_path": "scripts/method_a/data_variants/evaluate.py"
   },
   {
-    "file": "scripts/method_a/data_variants/prepare_datasets.py",
+    "file": "src/method_a/preparation/variants.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "d6045e54fad1393094ae3eba2e5d12f902470a4bd4ae8deb48714009b0617df4"
+    "original_sha256": "d6045e54fad1393094ae3eba2e5d12f902470a4bd4ae8deb48714009b0617df4",
+    "original_path": "scripts/method_a/data_variants/prepare_datasets.py"
   },
   {
-    "file": "scripts/method_a/data_variants/export_crops.py",
+    "file": "src/method_a/preparation/crop_export.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "7ffa3317e95fa8c914bf0e0f47d5afeaa68333cab97899673f9c3ae333459a1d"
+    "original_sha256": "7ffa3317e95fa8c914bf0e0f47d5afeaa68333cab97899673f9c3ae333459a1d",
+    "original_path": "scripts/method_a/data_variants/export_crops.py"
   },
   {
-    "file": "scripts/method_a/data_variants/verify_inputs.py",
+    "file": "src/method_a/preparation/input_checks.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "392c51c461d27141f843e559ba00dc1ccebeb45275fe10d748b469bfb865d186"
+    "original_sha256": "392c51c461d27141f843e559ba00dc1ccebeb45275fe10d748b469bfb865d186",
+    "original_path": "scripts/method_a/data_variants/verify_inputs.py"
   },
   {
-    "file": "scripts/method_a/data_variants/collect_results.py",
+    "file": "src/method_a/reporting.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "103a9e0f8ff5b63902a199d18d4ef820f4922a0faf164f68b19ac5ddda77fc84"
+    "original_sha256": "103a9e0f8ff5b63902a199d18d4ef820f4922a0faf164f68b19ac5ddda77fc84",
+    "original_path": "scripts/method_a/data_variants/collect_results.py"
   },
   {
-    "file": "scripts/method_a/data_variants/check_evaluation_on_cluster.py",
+    "file": "src/method_a/evaluation/regression.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "056d9eeeadfe0e8a5805e346d0667e60b55c6a0d83721cc9ee36e2cbdb376c91"
+    "original_sha256": "056d9eeeadfe0e8a5805e346d0667e60b55c6a0d83721cc9ee36e2cbdb376c91",
+    "original_path": "scripts/method_a/data_variants/check_evaluation_on_cluster.py"
   },
   {
-    "file": "scripts/method_a/data_variants/audit_plan.py",
+    "file": "src/method_a/preparation/source_audit.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "4f25f29e30f33346e6c07ccfe5223ff21e554c23e8b981bc75808807f1f0184f"
+    "original_sha256": "4f25f29e30f33346e6c07ccfe5223ff21e554c23e8b981bc75808807f1f0184f",
+    "original_path": "scripts/method_a/data_variants/audit_plan.py"
   },
   {
-    "file": "scripts/method_a/data_variants/spring_nms.py",
+    "file": "src/method_a/evaluation/deduplication.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "206f1981c1d0267dddc3269b0220b8cb40a28fb0420b8310d57f6c40331563ae"
+    "original_sha256": "206f1981c1d0267dddc3269b0220b8cb40a28fb0420b8310d57f6c40331563ae",
+    "original_path": "scripts/method_a/data_variants/spring_nms.py"
   },
   {
-    "file": "scripts/method_a/data_variants/spring_types.py",
+    "file": "src/method_a/evaluation/detection_types.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "51d437818e33efbfbed89e508e3b98f8c0c2fa4dbdd3d4bc57f7428774393168"
+    "original_sha256": "51d437818e33efbfbed89e508e3b98f8c0c2fa4dbdd3d4bc57f7428774393168",
+    "original_path": "scripts/method_a/data_variants/spring_types.py"
   },
   {
-    "file": "scripts/method_a/data_variants/qa_contact_sheet.py",
+    "file": "src/method_a/preparation/qa.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "07a0b552ea148735d4c71bfbec8adc53383517d80e14d28b64f2d84f90a5d0ee"
+    "original_sha256": "07a0b552ea148735d4c71bfbec8adc53383517d80e14d28b64f2d84f90a5d0ee",
+    "original_path": "scripts/method_a/data_variants/qa_contact_sheet.py"
   },
   {
-    "file": "scripts/method_a/data_variants/train.py",
+    "file": "src/method_a/training/fixed_steps.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "d34f41f45648da73b29079d951da963f1dc1ad07806bd6cd37ca4bd655dca0c8"
+    "original_sha256": "d34f41f45648da73b29079d951da963f1dc1ad07806bd6cd37ca4bd655dca0c8",
+    "original_path": "scripts/method_a/data_variants/train.py"
   },
   {
-    "file": "scripts/method_a/data_variants/copy_weights.py",
+    "file": "src/method_a/preparation/weights.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "c03330f3de1580e98aea30df47b3f111176bd6b239b0b9b170a515b6ce95fe17"
+    "original_sha256": "c03330f3de1580e98aea30df47b3f111176bd6b239b0b9b170a515b6ce95fe17",
+    "original_path": "scripts/method_a/data_variants/copy_weights.py"
   },
   {
-    "file": "scripts/method_a/data_variants/tests/test_method_a_variants.py",
+    "file": "src/method_a/tests/test_method_a_variants.py",
     "origin": "PR7:7c384b23",
-    "original_sha256": "4b6319b07b325414a48c187e8f0e8fc19d5d2e512f5d7ce47bd8a9bdc89570af"
+    "original_sha256": "4b6319b07b325414a48c187e8f0e8fc19d5d2e512f5d7ce47bd8a9bdc89570af",
+    "original_path": "scripts/method_a/data_variants/tests/test_method_a_variants.py"
   },
   {
     "file": "scripts/rfdetr_rgb_classifier/compare_color_inputs.py",
@@ -195,32 +225,32 @@
     "original_sha256": "4e39d04366c362af16eb573ea778edd7d3ad846b2c6f16bf76b207c329de9c56"
   },
   {
-    "file": "reports/method_a_data_variants_2026-10-18/recorded_comparison.json",
+    "file": "results/method_a/recorded_comparison.json",
     "origin": "PR7:7c384b23",
     "original_sha256": "794b76f07e1e823c10443ca6c9f4faba0245cde84cec719b7024a6a7f5ae083f"
   },
   {
-    "file": "reports/method_a_data_variants_2026-10-18/a3_validation.json",
+    "file": "results/method_a/a3_validation.json",
     "origin": "PR7:7c384b23",
     "original_sha256": "9f6e9f4537d96f839d3e091ad1ccd3f0057d2c525f4211e6786756e289d74b44"
   },
   {
-    "file": "reports/method_a_data_variants_2026-10-18/a2_validation.json",
+    "file": "results/method_a/a2_validation.json",
     "origin": "PR7:7c384b23",
     "original_sha256": "56a011395ef612a101fc3f1d2cc463d8a798619bef8c7b3251c4162d51146b86"
   },
   {
-    "file": "reports/method_a_data_variants_2026-10-18/a1_validation.json",
+    "file": "results/method_a/a1_validation.json",
     "origin": "PR7:7c384b23",
     "original_sha256": "0d6a65286d32a244c29e4c02d1ddad0a9ca61884e5a042b5d88dd0fe098ca23f"
   },
   {
-    "file": "reports/method_a_data_variants_2026-10-18/provenance.json",
+    "file": "results/method_a/provenance.json",
     "origin": "PR7:7c384b23",
     "original_sha256": "af280e13b7e2357b81845a6ac6d19f8538d24336d63b1fdbc0aac0d3ff8287a6"
   },
   {
-    "file": "reports/method_a_data_variants_2026-10-18/dataset_counts.json",
+    "file": "results/method_a/dataset_counts.json",
     "origin": "PR7:7c384b23",
     "original_sha256": "835eee216ed51e9b0e48f5c9e91eba11e0c59b5a2f765d5d2646d25e509498d3"
   },
@@ -268,5 +298,21 @@
     "file": "scripts/pipeline_abbas_v1/compare_classifiers.py",
     "origin": "audited classifier handoff implementation",
     "original_sha256": "187401e5a3abe3d79247d1e2024f1154abc28415ba79d20afa5111c765be1216"
+  },
+  {
+    "file": "results/method_a/baseline_validation.json",
+    "origin": "PR5:9629be03",
+    "original_path": "reports/method_a_focus_stack_2026-10-13/validation_summary.json",
+    "original_sha256": "64d692d0711c4cc7ea59a55d59d6801ad988e6f65bf2c9ef5dc9aeed662185af"
+  },
+  {
+    "file": "src/method_a/integrity.py",
+    "origin": "PR5:9629be03",
+    "original_sha256": "f05d7051ce0337b47cd13f0a6af3d1ca339df9628ed292c554b8f015d552ef94",
+    "original_path": "scripts/method_a_focus_stack_v1/focus_helpers.py",
+    "extracted_symbols": [
+      "sha256_file",
+      "crc32_file"
+    ]
   }
 ]

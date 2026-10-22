@@ -12,8 +12,13 @@ real specimen. The first part needs no data access, model weights, or GPU.
 
 | Approach | Input → processing → output | Code |
 | --- | --- | --- |
-| **Find and identify together** | Image region → RF-DETR → boxes and category predictions | [RF-DETR workflow](docs/WORKFLOWS.md#rf-detr-method-a) |
+| **Find and identify together** | Image region → RF-DETR → boxes and category predictions | [Method A overview](src/method_a/README.md) |
 | **Find first, identify second** | Image region → detector → specimen crops → Swin or DINO → category predictions | [Combined inference](docs/WORKFLOWS.md#small-detector-to-classifier-example) |
+
+Method A includes the original baseline and three data-preparation variants,
+A1/A2/A3. Its [folder README](src/method_a/README.md) is the entry point for its code, data
+requirements, worked examples, results and automated checks. Tests and examples
+are beside the code; input metadata and recorded evidence have their own folders.
 
 Swin and DINO are alternative classifiers. They identify the category of a cropped
 specimen; they do not locate specimens across an entire microscope slide.
@@ -74,10 +79,13 @@ only the prepared crop bundle and selected checkpoint, not whole microscope slid
 | --- | --- |
 | `scripts/infer.py`, `scripts/detect.py` | Small image/crop inference entry points |
 | `scripts/classification/` | Focal-plane preparation and Swin/DINO training |
-| `scripts/method_a/`, `scripts/method_a_focus_stack_v1/` | RF-DETR data variants and baseline reproduction |
+| `src/method_a/` | Method A overview, reusable code, tests and examples |
+| `scripts/method_a/` | Four commands selecting baseline/A1/A2/A3 with `--config` |
+| `data/method_a/`, `results/method_a/` | Method A input/split metadata and recorded evidence |
+| `src/smithsonian_review/` | Shared result export; delegates Method A metrics to its module |
 | `scripts/pipeline_abbas_v1/`, `scripts/rfdetr_rgb_classifier/` | Detector/classifier handoff and evaluation |
 | `config/`, `data/`, `examples/` | Path templates, checkpoint hashes, category maps, example identities |
-| `results/`, `reports/` | Aggregate evidence used to regenerate tables and figures |
+| `results/` | Aggregate evidence used to regenerate tables and figures |
 | `tests/`, `provenance/` | Regression checks and source/file fingerprints |
 
 ## Further instructions

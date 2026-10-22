@@ -9,3 +9,8 @@ config/local*
 *.pth
 *.ndpi
 *.ndpa
+
+# Local Python package installation/build metadata.
+*.egg-info/
+build/
+dist/

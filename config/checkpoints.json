@@ -26,5 +26,37 @@
     "architecture": "dino",
     "categories": 28,
     "split": "shared_slides"
+  },
+  "method_a_baseline": {
+    "relative_path": "processed/method_a_focus_stack_v1/run_artifacts/detector/checkpoint_best_total.pth",
+    "sha256": "c7dc1fe0e01aadf78c9a30ca1431212a9bb9e68709048100bd094f2adb952afd",
+    "architecture": "rfdetr_2xl",
+    "categories": 28,
+    "data_variant": "baseline",
+    "resolution": 1000
+  },
+  "method_a_a1": {
+    "relative_path": "processed/method_a_sparse_labels_20261017/run_artifacts/m1_positive_grid/training/checkpoint_final_ema.pth",
+    "sha256": "3a62c98bf919e22e2ed6e1563df27e9775ddde163c92e88c5154ca487f770aeb",
+    "architecture": "rfdetr_2xl",
+    "categories": 28,
+    "data_variant": "A1",
+    "resolution": 1000
+  },
+  "method_a_a2": {
+    "relative_path": "processed/method_a_sparse_labels_20261017/run_artifacts/m2_retile_matched/training/checkpoint_final_ema.pth",
+    "sha256": "1c1f19eefadd2bad05a4b6d77d1b206acf47358faf2b64c3cda74254c3de9236",
+    "architecture": "rfdetr_2xl",
+    "categories": 28,
+    "data_variant": "A2",
+    "resolution": 1000
+  },
+  "method_a_a3": {
+    "relative_path": "processed/method_a_sparse_labels_20261017/run_artifacts/m2_retile_all/training/checkpoint_final_ema.pth",
+    "sha256": "bf4c64e99c3ccfc8406bafa8f2906a706d9e3378673cac730c638d17eed8f117",
+    "architecture": "rfdetr_2xl",
+    "categories": 28,
+    "data_variant": "A3",
+    "resolution": 1000
   }
 }

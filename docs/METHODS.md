@@ -18,10 +18,14 @@ The original classifier comparison reports Swin 42.94% / 70.61% and adapted DINO
 50.14% / 74.35% validation accuracy (separate / shared slides). These use expert
 crops, not detector crops. Checkpoint selection uses validation macro-F1.
 
-Method A A1/A2/A3 uses the same 274 known validation targets, with detected /
-correctly identified counts of 84/46, 101/46, and 99/55 at confidence 0.5 and IoU
-0.5. Its historical baseline differs in training settings. Comparing it with the
-variants does not isolate data selection alone.
+Method A evaluates its baseline and A1/A2/A3 on the same 274 known validation
+targets. The [Method A result README](../results/method_a/README.md)
+contains all four rows and metric definitions. The historical baseline differs
+in training settings, so comparison with the variants does not isolate data
+selection alone. The [unified Method A command guide](../scripts/method_a/README.md)
+explains preparation and execution for all four configurations. The
+[input and split metadata](../data/method_a/README.md) records how the frozen
+assignment is consumed without repartitioning.
 
 The frozen RGB detection-crop comparison reports DINO 125/258 (48.4%) and Swin
 93/258 (36.0%) correct among found objects. The reused detector had exposure to
