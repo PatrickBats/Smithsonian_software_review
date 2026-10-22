@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "method": "A",
+  "source": "Original PR #5/#7 input contracts and retained experiment metadata; external files were not freshly audited.",
+  "artifact_root_environment": "SMITHSONIAN_ROOT",
+  "recorded_artifact_root": "/rhf/allocations/dsci435/Smithsonian_F26",
+  "path_format": "External relative_path values retain the recorded POSIX layout; join filesystem components using the host path library.",
+  "inputs": [
+    {
+      "name": "frozen_assignment",
+      "relative_path": "runs/broad_swin_2026-10-08/separate_slides/ordinary_baseline/record_assignments.csv",
+      "sha256": "da2062a127cf6e14945e50fff097e0db102d7f8203250b47daed6b6bb166478d",
+      "used_for": "Original specimen membership and split; never regenerate a split when reproducing this experiment."
+    },
+    {
+      "name": "fine_to_broad",
+      "relative_path": "runs/broad_swin_2026-10-08/separate_slides/ordinary_baseline/fine_to_broad.csv",
+      "repository_reference": "data/fine_to_broad.csv",
+      "sha256": "a2f8da0b40cf9a1a89ea7fffe360770b2b9eae56f9fdd307bbf1b286bd9f793d",
+      "used_for": "32 sponsor categories mapped to the experimental 28 labels."
+    },
+    {
+      "name": "bound_records",
+      "relative_path": "processed/method_a_focus_stack_v1/inputs/priority_records.csv",
+      "sha256": "d2dedb6bbb7e4c0e6c428c0d1cd4fce77d1f34bc6a829a515b172078913628f2",
+      "used_for": "Frozen records with Method A split, label IDs and original source image/annotation paths."
+    },
+    {
+      "name": "model_category_map",
+      "relative_path": "processed/method_a_focus_stack_v1/inputs/broad_category_map.json",
+      "repository_reference": "data/method_a/broad_category_map.json",
+      "sha256": "9c8ad03118f4211de11e206c7f614834733086052e9516bb93b9d15a1294378c",
+      "used_for": "Interpret model outputs 0..27; COCO labels use 1..28 before loader remapping."
+    },
+    {
+      "name": "grid_images",
+      "relative_path": "model_B/data/abbas_focus_stack_v1",
+      "used_for": "Existing 1024-pixel LoG-fused train/valid PNGs, linked read-only by the baseline."
+    },
+    {
+      "name": "grid_plans",
+      "relative_path": "processed/method_a_focus_stack_v1/plan",
+      "used_for": "Original tile positions and known reference boxes for preparation and full-grid evaluation."
+    },
+    {
+      "name": "grid_dataset",
+      "relative_path": "processed/method_a_focus_stack_v1/dataset",
+      "used_for": "COCO annotations, linked images and source_image_hashes.json for the baseline and shared validation."
+    },
+    {
+      "name": "variant_datasets",
+      "relative_path": "processed/method_a_sparse_labels_20261017/datasets",
+      "used_for": "Prepared A1/A2/A3 COCO datasets and verified summaries; valid links to the baseline validation grid."
+    },
+    {
+      "name": "source_scans_and_annotations",
+      "path_source": "image_nots_path and annotation_nots_path in bound_records",
+      "used_for": "Original NDPI focal series and authoritative NDPA; required for rebuilding source geometry and context crops, not table export."
+    },
+    {
+      "name": "generic_initialization",
+      "relative_path": "weights/rf-detr-xxlarge.pth",
+      "sha256": "bf418652d5e07ad441599acfadc65bb1767029079e7a343a6d61675ec5d553ae",
+      "used_for": "Training initialization; not one of the fossil-trained final checkpoints."
+    }
+  ],
+  "configurations": {
+    "baseline": {
+      "training_input": "processed/method_a_focus_stack_v1/dataset/train",
+      "preparation": "All retained ROI-grid training tiles."
+    },
+    "A1": {
+      "training_input": "processed/method_a_sparse_labels_20261017/datasets/m1_positive_grid/train",
+      "preparation": "Keep original tiles containing a retained known YES box."
+    },
+    "A2": {
+      "training_input": "processed/method_a_sparse_labels_20261017/datasets/m2_retile_matched/train",
+      "preparation": "Context crops anchored on originally covered training targets; incidental known labels retained."
+    },
+    "A3": {
+      "training_input": "processed/method_a_sparse_labels_20261017/datasets/m2_retile_all/train",
+      "preparation": "Context crops anchored on all assigned training targets."
+    }
+  },
+  "shared_validation": "processed/method_a_focus_stack_v1/dataset/valid",
+  "checkpoints_reference": "config/checkpoints.json",
+  "distribution": "Existing external inputs remain in place; no image data bundle is introduced."
+}

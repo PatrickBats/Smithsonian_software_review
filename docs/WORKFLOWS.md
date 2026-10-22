@@ -64,36 +64,17 @@ training. Sparse labels inside these regions remain a limitation.
 
 ## RF-DETR Method A
 
-Set paths using `config/environment.example.sh`. To rebuild baseline inputs from
-existing exported region PNGs, the ordered stages are:
-`build_inputs.py`, `plan_grid.py`, and `build_linked_dataset.py` in
-`scripts/method_a_focus_stack_v1/`. These reference the configured
-`SMITHSONIAN_ROOT` layout. Their baseline inputs must be prepared before A1/A2/A3.
+Method A has four configurations: the original baseline plus A1/A2/A3.
+Instructions live beside the relevant code, data, examples and results:
 
-```bash
-python scripts/method_a/data_variants/audit_plan.py
-python scripts/method_a/data_variants/prepare_datasets.py m1
-python scripts/method_a/data_variants/prepare_datasets.py plan
-python scripts/method_a/data_variants/export_crops.py --slide-index 0 --limit 2
-```
-
-The limited export checks two crops. For full preparation, export each planned
-slide index without `--limit`, then run `prepare_datasets.py finalize`.
-A1 keeps positive baseline tiles; A2 uses context windows anchored on originally
-covered targets; A3 includes all assigned training targets. All retain the same
-28-class task and fixed validation grid.
-
-```bash
-python scripts/method_a/data_variants/train.py --variant A1 --smoke
-python scripts/method_a/data_variants/train.py --variant A1
-python scripts/method_a/data_variants/evaluate.py --variant A1
-```
-
-Repeat with A2/A3 as needed. Never rerun against completed shared directories.
-The baseline training and evaluation entry points remain available in
-`scripts/method_a_focus_stack_v1/` for historical reproduction. New variant runs
-use 2,400 optimizer steps and the final EMA checkpoint. No automatic cleanup of
-shared checkpoints is included.
+| Task | Folder README |
+| --- | --- |
+| Choose a configuration | [Method A overview](../src/method_a/README.md) |
+| Locate inputs and trained weights | [Method A data](../data/method_a/README.md) |
+| Rebuild, train or evaluate the baseline | [Baseline scripts](../scripts/method_a/README.md) |
+| Prepare, train or evaluate A1/A2/A3 | [Variant scripts](../scripts/method_a/README.md) |
+| Run an example and understand its inputs/outputs | [Method A examples](../src/method_a/examples/README.md) |
+| Read the four-row comparison and metric definitions | [Method A results](../results/method_a/README.md) |
 
 ## Small detector-to-classifier example
 

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "method": "A",
+  "selection": "The completed experiment adopts Patrick's existing frozen assignment; Method A does not draw a new random split.",
+  "source_inventory": {
+    "priority_annotations": 2290,
+    "sponsor_categories": 32
+  },
+  "adopted_assignment": {
+    "records": 2283,
+    "exact_source_files": 75,
+    "split_groups": 73,
+    "model_categories": 28,
+    "relative_path": "runs/broad_swin_2026-10-08/separate_slides/ordinary_baseline/record_assignments.csv",
+    "sha256": "da2062a127cf6e14945e50fff097e0db102d7f8203250b47daed6b6bb166478d"
+  },
+  "selection_history": "The adopted 2283-record assignment excludes five repeated same-category records and both records of one conflicting-label pair. The full 2290-record inventory remains separate; these exclusions are not a new source-data rule.",
+  "partition_fields": {
+    "original": "split",
+    "method_a": "method_a_split",
+    "renaming": {
+      "train": "train",
+      "val": "valid",
+      "test": "test"
+    }
+  },
+  "partitions": {
+    "train": {
+      "records": 1605,
+      "exact_source_files": 47,
+      "split_groups": 45
+    },
+    "valid": {
+      "records": 347,
+      "exact_source_files": 14,
+      "split_groups": 14
+    },
+    "test": {
+      "records": 331,
+      "exact_source_files": 14,
+      "split_groups": 14
+    }
+  },
+  "grouping": "Membership is taken from the original slide_id and split_group_id fields, including two two-source groups; no accession or L/R grouping is inferred here.",
+  "verification": {
+    "source": "Retained frozen priority_records.csv",
+    "source_sha256": "d2dedb6bbb7e4c0e6c428c0d1cd4fce77d1f34bc6a829a515b172078913628f2",
+    "duplicate_record_ids": 0,
+    "source_files_crossing_partitions": 0,
+    "split_groups_crossing_partitions": 0
+  },
+  "training_coverage": {
+    "baseline": {
+      "images": 5152,
+      "known_records": 1061
+    },
+    "A1": {
+      "images": 884,
+      "known_records": 1061
+    },
+    "A2": {
+      "images": 918,
+      "known_records": 1063,
+      "incidental_extra_known_records": 2
+    },
+    "A3": {
+      "images": 1423,
+      "known_records": 1605
+    }
+  },
+  "validation_coverage": {
+    "assigned_records": 347,
+    "retained_grid_tiles": 1432,
+    "covered_known_records": 274,
+    "not_covered_by_retained_grid": 73,
+    "same_for_all_configurations": true
+  },
+  "test_pixels_used": false,
+  "test_policy": "331 assigned specimens remain reserved. Reading assignment membership is not model evaluation; no test pixels are exported or evaluated by these workflows.",
+  "reproduction": "Use the exact assignment bytes and existing membership. A guessed ratio or seed does not reproduce this assignment."
+}

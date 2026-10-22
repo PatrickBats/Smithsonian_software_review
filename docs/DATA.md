@@ -55,6 +55,13 @@ paths. Raw-slide workflows need the original paths recorded in external manifest
 or a compatible read-only mount. Portable crop inference does not depend on those
 raw-slide paths.
 
+## Method A inputs and checkpoints
+
+The [Method A data README](../data/method_a/README.md) describes the baseline and
+A1/A2/A3 input files, annotation formats, recorded checkpoint locations and
+verification commands. It lives with the data documentation; the
+[worked examples](../src/method_a/examples/README.md) show model input/output formats.
+
 ## Upstream sources
 
 ```bash

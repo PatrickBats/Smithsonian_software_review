@@ -57,3 +57,35 @@ those workflows; clone access alone cannot supply private scientific inputs.
 Checkpoint payloads are supplied externally with verified fingerprints. Confirm
 with the instructor whether that satisfies the rubric's requested weights file.
 The final test set remains unused for model inference and selection.
+
+## Method A organization and interface checks — October 21, 2026
+
+The editable package installs with `python -m pip install --no-deps -e .`.
+There are 27 checks under `src/method_a/tests/` and three shared checks under
+`tests/`, 30 total. CI installs the package and runs both suites explicitly.
+
+The Method A checks preserve 15 original regression checks and add 12 interface
+checks. They cover all four configurations through common training/evaluation
+commands, preparation dispatch and dataset selection, invalid-argument rejection
+before imports/data I/O, exact input-map copying, isolated scratch directories,
+inert imports, packaged category metadata, command help from another directory,
+and the expected four-row CSV.
+
+The six original variant report JSONs and original baseline summary retain their
+bytes. Six frozen numerical function fingerprints still match the recorded
+provenance, including crop planning, fusion, matching and deduplication. Existing
+classifier CSV/SVG outputs remain byte-identical after shared report integration.
+
+The four thin commands select baseline/A1/A2/A3 via `--config`; reusable code is
+organized by preparation, training and evaluation under `src/method_a/`, with
+tests/examples beside it. Input metadata is under `data/method_a/`, and evidence
+under `results/method_a/`. Source attribution retains original PR paths/hashes.
+Identical duplicated geometry/deduplication helpers are shared. Input binding now
+copies the exact map required by variants; each training process receives a unique
+scratch directory. Baseline and fixed-step training protocols remain distinct.
+
+The local interface checks ran on macOS/Python 3.13 without imaging/model runtime
+installation. No image bundle was created. Existing external image locations and
+frozen membership remain unchanged. Raw-source preparation, training, GPU replay,
+native Windows execution and live external artifact access were not rechecked;
+the historical model-demo checks above were not rerun.

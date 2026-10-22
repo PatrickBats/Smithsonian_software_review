@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smithsonian-method-a"
+version = "0.1.0"
+description = "Reusable Method A pollen detection workflows and command entry points"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["method_a.tests*", "method_a.examples*"]
