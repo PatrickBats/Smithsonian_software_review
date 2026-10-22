@@ -10,12 +10,12 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [
     str(ROOT / "scripts"),
-    str(ROOT / "scripts/pipeline_abbas_v1"),
-    str(ROOT / "scripts/classification"),
+    str(ROOT),
+
 ]
 from infer import validate_boxes
 from artifacts import verify, sha256
-from broad_labels import apply_broad
+from method_b.preprocessing.category_mapping import apply_broad
 
 
 class InputContracts(unittest.TestCase):

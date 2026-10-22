@@ -1,0 +1,18 @@
+# Method B only: Linux / Python 3.13; CPU wheel selection is documented in README.
+torch==2.10.0
+torchvision==0.25.0
+numpy==2.4.3
+Pillow==12.1.1
+omegaconf==2.3.0
+opencv-python==4.13.0.92
+tifffile==2026.3.3
+zarr==3.1.5
+imagecodecs==2026.3.6
+openslide-python==1.4.6
+openslide-bin==4.0.1.2
+rfdetr==1.6.4
+rfdetr-plus==1.0.2
+h5py==3.16.0
+jupyterlab>=4,<5
+ipykernel>=6,<8
+nbclient>=0.10,<1

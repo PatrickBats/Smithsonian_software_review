@@ -8,6 +8,8 @@ manually finding and naming specimens requires expert time.
 fresh checkout to inspecting the supplied results, then running a classifier on a
 real specimen. The first part needs no data access, model weights, or GPU.
 
+For the two-stage workflow, see [RF-DETR + Swin / DINOv2](method_b/README.md).
+
 ## What the software does
 
 | Approach | Input → processing → output | Code |
@@ -72,10 +74,10 @@ only the prepared crop bundle and selected checkpoint, not whole microscope slid
 
 | Location | Purpose |
 | --- | --- |
-| `scripts/infer.py`, `scripts/detect.py` | Small image/crop inference entry points |
-| `scripts/classification/` | Focal-plane preparation and Swin/DINO training |
+| `method_b/classification/predict_categories.py`, `method_b/detection/predict_boxes.py` | Small image/crop inference entry points |
+| `method_b/preprocessing/`, `method_b/classification/` | Focal-plane preparation and Swin/DINO training |
 | `scripts/method_a/`, `scripts/method_a_focus_stack_v1/` | RF-DETR data variants and baseline reproduction |
-| `scripts/pipeline_abbas_v1/`, `scripts/rfdetr_rgb_classifier/` | Detector/classifier handoff and evaluation |
+| `method_b/pipeline/`, `method_b/evaluation/` | Detector/classifier handoff and evaluation |
 | `config/`, `data/`, `examples/` | Path templates, checkpoint hashes, category maps, example identities |
 | `results/`, `reports/` | Aggregate evidence used to regenerate tables and figures |
 | `tests/`, `provenance/` | Regression checks and source/file fingerprints |

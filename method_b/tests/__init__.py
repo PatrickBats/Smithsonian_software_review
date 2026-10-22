@@ -1,0 +1,1 @@
+"""Method B tests modules."""

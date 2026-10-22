@@ -1,0 +1,1 @@
+"""Method B detection modules."""
