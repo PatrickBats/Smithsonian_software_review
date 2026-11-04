@@ -16,6 +16,35 @@ or DINOv2 for classification.
 The project builds on the Spring 2026 team's microscopy pipeline. Adapted code and
 model sources are credited in [NOTICE.md](NOTICE.md).
 
+## Pipeline example
+
+A validation region from the [executed demo](notebooks/demo.ipynb): RF-DETR locates
+a specimen, then Swin-Tiny and DINOv2 classify the extracted crop.
+
+<table>
+  <tr>
+    <th>1. Locate</th>
+    <th>2. Crop</th>
+    <th>3. Identify</th>
+  </tr>
+  <tr>
+    <td width="44%"><img src="docs/images/detected-region.jpg" width="380" alt="Microscope region with a purple RF-DETR detection box around one specimen"></td>
+    <td width="28%"><img src="docs/images/detected-crop.jpg" width="224" alt="Specimen crop extracted from the detection with surrounding context"></td>
+    <td width="28%">
+      <strong>Swin-Tiny</strong><br>
+      Caryapollenites<br>
+      Model score: 93.1%<br><br>
+      <strong>DINOv2</strong><br>
+      Caryapollenites<br>
+      Model score: 79.9%
+    </td>
+  </tr>
+</table>
+
+The purple box marks the detected specimen. Both classifiers predict
+**Caryapollenites** for this crop. Each score is the model probability assigned to
+that category. Images are compressed display previews from the notebook.
+
 ## Repository structure
 
 | Folder | Contents |
@@ -55,10 +84,15 @@ environment; the supplied requirements select CPU wheels. Training is an explici
 
 ## Data
 
-Images and weights remain external. [Data setup](docs/DATA.md) gives retrieval locations,
+Full image datasets and model weights remain external. [Data setup](docs/DATA.md) gives retrieval locations,
 checkpoint hashes, and required dataset layouts. The modeling task uses 28 categories.
 [Category maps and split definitions](src/smithsonian/data/README.md) describe
 the labels and specimen assignments.
+
+<p align="center">
+  <img src="docs/images/taxodium-specimen.jpg" width="240" alt="Expert-labeled Taxodium specimen from the validation set"><br>
+  <em>Taxodium sp. — an expert-labeled validation crop used in the demo.</em>
+</p>
 
 Copy a [configuration template](config/README.md) to `config/local.<name>.json` and set
 its paths. JSON paths resolve relative to that file; command-line paths resolve relative
