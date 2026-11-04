@@ -20,7 +20,7 @@ model sources are credited in [NOTICE.md](NOTICE.md).
 
 | Folder | Contents |
 | --- | --- |
-| `src/smithsonian/data/` | Category grouping and frozen specimen splits |
+| `src/smithsonian/data/` | Category CSVs, label grouping, and specimen splits |
 | `src/smithsonian/preprocessing/` | Focal selection, detector crops, and ignore regions |
 | `src/smithsonian/models/` | Swin/DINO models and shared detector structures |
 | `src/smithsonian/training/` | Classifier and joint RF-DETR training |
@@ -30,7 +30,7 @@ model sources are credited in [NOTICE.md](NOTICE.md).
 | `config/` | JSON settings and checkpoint identities |
 | `notebooks/` | One end-to-end region demo |
 | `tests/` | Input, geometry, loss, and configuration checks |
-| `data/`, `examples/`, `results/` | Small maps, example manifests, and aggregate results |
+| `examples/`, `results/` | Demo manifests and aggregate results |
 
 Each component README describes its interfaces and commands.
 
@@ -97,6 +97,7 @@ python scripts/results.py --output outputs/results
 
 [notebooks/demo.ipynb](notebooks/demo.ipynb) demonstrates a real specimen, saved Swin/DINO
 predictions, RF-DETR detection, extracted crops, and annotated classification outputs.
+The saved notebook includes images and results for viewing directly on GitHub.
 Follow [notebook setup](notebooks/README.md), then run:
 
 ```bash

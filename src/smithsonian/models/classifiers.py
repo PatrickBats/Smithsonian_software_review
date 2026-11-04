@@ -58,6 +58,7 @@ def load_classifier(kind, path, dino_source, device):
                 )
 
         model = Dino()
+    # Restore all learned weights and switch to inference mode.
     model.load_state_dict(ckpt["model"], strict=True)
     model.requires_grad_(False)
     model.eval().to(device)
@@ -80,6 +81,7 @@ def classify(model, images):
     device = next(model.parameters()).device
     out = []
     for start in range(0, len(images), 32):
+        # Match the crop size and normalization used during training.
         xx = []
         for im in images[start : start + 32]:
             im = ImageOps.pad(im, (max(im.size), max(im.size)), color="white").resize(

@@ -20,6 +20,7 @@ def apply_broad(rows, fine_labels, path):
 
     Raises:
         ValueError: Vocabulary, mapping identity or category coverage differs."""
+    # Verify the category map before changing labels.
     path = Path(path)
     if hashlib.sha256(path.read_bytes()).hexdigest() != MAP_SHA:
         raise ValueError("Broad-v1 mapping fingerprint changed")
@@ -35,6 +36,7 @@ def apply_broad(rows, fine_labels, path):
         raise ValueError("Invalid broad namespace")
     if any(ids[int(r["broad_class_id"])] != r["broad_category"] for r in m):
         raise ValueError("Conflicting broad names")
+    # Keep specimen IDs and split assignments while replacing category names.
     updated = []
     for row in rows:
         original = row["sponsor_category"]

@@ -1,6 +1,6 @@
 # Validation
 
-Checked November 3, 2026 with Python 3.13 on Linux using CPU models.
+Checked November 3–4, 2026 with Python 3.13 on Linux using CPU models.
 
 ## Completed
 
@@ -13,7 +13,8 @@ Checked November 3, 2026 with Python 3.13 on Linux using CPU models.
 - The notebook executed all cells using a real validation specimen and image region.
   Detector outputs were identical to the previous demo; all four Swin/DINO specimen
   and detected-crop probability comparisons had maximum absolute difference **0.0**
-  (required tolerance: `1e-5`). Distributed notebook outputs are cleared.
+  (required tolerance: `1e-5`). The demo retains executed images and its prediction
+  table for GitHub viewing; display previews use JPEG compression.
 - Synthetic Swin and DINO forward/backward checks produced finite gradients, without
   optimizer updates, downloaded initialization weights, or saved checkpoints.
 - The migrated ignore loss, pollen-head initialization, and detector summary match

@@ -2,7 +2,9 @@
 
 `demo.ipynb` calls shared package interfaces to validate inputs, display a real
 specimen/reference, run Swin and DINO, detect a region, classify the detections and
-render labeled images with a prediction table. All outputs are cleared in Git.
+render labeled images with a prediction table. The committed notebook includes
+executed outputs so the complete example is visible on GitHub. Open
+[demo.ipynb](demo.ipynb) to read it, or follow the setup below to rerun it.
 
 ## Setup
 
@@ -41,7 +43,8 @@ weights, and creates a unique child of the configured output directory. Outputs
 include detection JSON, complete classifier probabilities, input hashes and CSV.
 
 For automation, set `SMITHSONIAN_DEMO_CONFIG` to your local JSON path and execute
-with `nbclient`; save the executed copy outside the repository. The notebook
+with `nbclient`. When updating the published demo, retain its executed outputs
+and check that images and the prediction table render correctly. The notebook
 demonstrates inference on one prepared region. See the
 [evaluation guide](../src/smithsonian/evaluation/README.md) for validation metrics
 and the [preprocessing guide](../src/smithsonian/preprocessing/README.md) for NDPI preparation.

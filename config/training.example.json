@@ -1,8 +1,8 @@
 {
   "data": "../external/classifier_inputs/dataset",
   "assignments": "../external/record_assignments.csv",
-  "categories": "../data/category_map_32.csv",
-  "broad_map": "../data/fine_to_broad.csv",
+  "categories": "../src/smithsonian/data/category_map_32.csv",
+  "broad_map": "../src/smithsonian/data/fine_to_broad.csv",
   "output": "../../smithsonian_training_new",
   "epochs": 40,
   "head_epochs": 3,

@@ -5,7 +5,6 @@ from PIL import Image, ImageOps
 
 
 def crop_input(image, box, margin=0.1):
-    # Same pixels as detector input; fixed context, no focal-plane re-selection.
     """Extract a context crop with white padding and bicubic resize.
 
     Args:
@@ -26,8 +25,10 @@ def crop_input(image, box, margin=0.1):
         or margin < 0
     ):
         raise ValueError("Invalid classifier crop bounds or margin")
+    # Expand the detection box to keep nearby context.
     pad = margin * max(x1 - x0, y1 - y0)
     bounds = (math.floor(x0 - pad), math.floor(y0 - pad), math.ceil(x1 + pad), math.ceil(y1 + pad))
+    # Fill any area outside the image with white.
     canvas = Image.new("RGB", (bounds[2] - bounds[0], bounds[3] - bounds[1]), "white")
     clip = (
         max(0, bounds[0]),
@@ -37,6 +38,7 @@ def crop_input(image, box, margin=0.1):
     )
     if clip[2] > clip[0] and clip[3] > clip[1]:
         canvas.paste(image.crop(clip), (clip[0] - bounds[0], clip[1] - bounds[1]))
+    # Square padding preserves specimen proportions during resizing.
     side = max(canvas.size)
     return ImageOps.pad(canvas, (side, side), color="white").resize(
         (224, 224), Image.Resampling.BICUBIC

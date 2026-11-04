@@ -53,6 +53,7 @@ def run_inference(args):
     """
     if args.output.exists():
         raise FileExistsError("Choose a new output file")
+    # Check the saved model identity before loading its weights.
     entries = json.loads((ROOT / "config/checkpoints.json").read_text())
     digest = sha256(args.checkpoint)
     known = [
@@ -74,9 +75,11 @@ def run_inference(args):
     torch.backends.cudnn.allow_tf32 = False
     with Image.open(args.image) as im:
         image = im.convert("RGB")
+    # Classify the supplied boxes or the full input crop.
     boxes = validate_boxes(json.loads(args.boxes.read_text())) if args.boxes else None
     images = [crop_input(image, b) for b in boxes] if boxes is not None else [image]
     model, labels = load_classifier(args.model, args.checkpoint, args.dino_source, args.device)
+    # Match each probability vector to the checkpoint category order.
     outputs = []
     for i, probs in enumerate(classify(model, images)):
         index = max(range(len(probs)), key=probs.__getitem__)

@@ -6,11 +6,14 @@
 
 **Outputs:** Updated records, ordered labels and audit metadata.
 
+The CSV maps and their Python helpers live together in this directory.
+Training and preprocessing templates in `config/` point to these CSV files.
+
 ## Categories and partitions
 
-The inventory contains 2,283 specimens. `data/fine_to_broad.csv` combines related
+The inventory contains 2,283 specimens. `fine_to_broad.csv` combines related
 Momipites and Caryapollenites labels into 28 modeling categories. The original
-labels remain in `data/category_map_32.csv`.
+labels remain in `category_map_32.csv`.
 
 Separate-slide and shared-slide settings each contain 1,605 training, 347 validation,
 and 331 reserved test specimens. Related slides stay together in the separate-slide

@@ -23,6 +23,7 @@ def apply_split(rows, path):
     assignments = protocol["assignments"]
     if len(assignments) != len(rows) or set(assignments) != {r["record_id"] for r in rows}:
         raise ValueError("Diagnostic IDs differ from verified dataset")
+    # Apply the saved assignments and preserve reserved test membership.
     updated = []
     for row in rows:
         split = assignments[row["record_id"]]
@@ -35,6 +36,7 @@ def apply_split(rows, path):
     for split in ("train", "val"):
         if len({r["sponsor_category"] for r in updated if r["split"] == split}) != 32:
             raise ValueError("Every category must appear in train and validation")
+    # Catch duplicate images assigned to different partitions.
     hashes = collections.defaultdict(set)
     for row in updated:
         hashes[row["png_sha256"]].add(row["split"])

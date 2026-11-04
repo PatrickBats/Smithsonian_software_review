@@ -18,6 +18,9 @@ smithsonian-preflight = "smithsonian.io.preflight:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+"smithsonian.data" = ["*.csv"]
+
 [tool.ruff]
 line-length = 100
 exclude = ["external", "outputs", ".venv"]

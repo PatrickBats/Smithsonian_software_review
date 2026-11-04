@@ -37,14 +37,22 @@ class StructureTests(unittest.TestCase):
                         ast.unparse(node.func), ("sys.path.insert", "sys.path.append"), str(path)
                     )
 
-    def test_notebook_has_clear_outputs_and_pipeline_calls(self):
+    def test_notebook_has_executed_outputs_and_pipeline_calls(self):
         notebook = json.loads((ROOT / "notebooks/demo.ipynb").read_text())
         code = ""
+        images = 0
+        tables = 0
         for cell in notebook["cells"]:
             if cell["cell_type"] == "code":
-                self.assertEqual(cell["outputs"], [])
-                self.assertIsNone(cell["execution_count"])
+                self.assertIsInstance(cell["execution_count"], int)
+                for output in cell["outputs"]:
+                    self.assertNotEqual(output["output_type"], "error")
+                    data = output.get("data", {})
+                    images += int("image/png" in data or "image/jpeg" in data)
+                    tables += int("text/html" in data)
                 code += "".join(cell["source"])
+        self.assertGreaterEqual(images, 3)
+        self.assertGreaterEqual(tables, 1)
         for interface in (
             "prepare_demo",
             "classify_example",

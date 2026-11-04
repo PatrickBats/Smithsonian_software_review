@@ -104,6 +104,7 @@ def main():
             ds = det.predict(pil.convert("RGB"), threshold=a.conf)
         class_id_hist.update(int(c) for c in ds.class_id)
         pred = torch.tensor(ds.xyxy, dtype=torch.float32).reshape(-1, 4)
+        # Convert labeled COCO boxes to the detector's corner coordinates.
         gt = torch.tensor(
             [
                 [
@@ -116,6 +117,7 @@ def main():
             ],
             dtype=torch.float32,
         ).reshape(-1, 4)
+        # Keep additional detections that fall below the labeled-box overlap cutoff.
         keep = torch.ones(len(pred), dtype=torch.bool)
         gt_hit = 0
         if len(pred) and len(gt):

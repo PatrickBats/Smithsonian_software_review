@@ -121,6 +121,7 @@ def run_workflow(args):
         train = Crops(root, trainrows, labels, True)
         val = Crops(root, valrows, labels, False)
         gen = torch.Generator().manual_seed(args.seed)
+        # Shuffle training crops; keep validation order fixed.
         trainloader = DataLoader(
             train,
             batch_size=args.batch_size,
@@ -175,6 +176,7 @@ def run_workflow(args):
         for epoch in range(total_epochs):
             ep_start = time.time()
             head_only = epoch < head_epochs
+            # Train the category head first, then enable backbone fine-tuning.
             if epoch in (0, head_epochs):
                 for p in model.parameters():
                     p.requires_grad_(not head_only)

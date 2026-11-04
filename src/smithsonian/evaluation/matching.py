@@ -55,6 +55,7 @@ def match_boxes(predictions, references):
     usedt = set()
     assigned = {}
     pairs = [(float(overlap[i, j]), i, j) for i, j in torch.nonzero(overlap >= 0.5).tolist()]
+    # Assign the strongest overlaps first, using each box at most once.
     for iou, i, j in sorted(pairs, reverse=True):
         if i not in usedp and j not in usedt:
             usedp.add(i)

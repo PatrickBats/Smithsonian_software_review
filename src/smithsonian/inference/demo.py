@@ -33,6 +33,7 @@ def prepare_demo(config_path):
     sample = json.loads((root / "examples/crops.json").read_text())[0]
     region = json.loads((root / "examples/region.json").read_text())
     checkpoints = json.loads((root / "config/checkpoints.json").read_text())
+    # Use the fixed validation examples and their recorded file hashes.
     paths = {
         "specimen": (Path(config["crops"]) / sample["image"], sample["sha256"]),
         "image": (Path(config["image"]), region["sha256"]),
@@ -152,11 +153,12 @@ def annotate_predictions(image, result):
     Returns:
         RGB PIL image with annotations for display only.
     """
-    from PIL import Image, ImageDraw
+    from PIL import Image, ImageDraw, ImageFont
 
     with Image.open(image) as source:
         annotated = source.convert("RGB")
     draw = ImageDraw.Draw(annotated)
+    font = ImageFont.load_default(size=20)
     for row in result["predictions"]:
         if row["box"] is None:
             continue
@@ -164,6 +166,30 @@ def annotate_predictions(image, result):
         draw.rectangle((x0, y0, x1, y1), outline="#8747cf", width=4)
         text = f"{row['category']} ({row['score']:.1%})"
         draw.text(
-            (max(0, x0), max(0, y0 - 16)), text, fill="#592a88", stroke_width=1, stroke_fill="white"
+            (max(0, x0), max(0, y0 - 24)),
+            text,
+            font=font,
+            fill="#592a88",
+            stroke_width=1,
+            stroke_fill="white",
         )
     return annotated
+
+
+def preview_image(image):
+    """Create a compact notebook preview from a copy of an image.
+
+    Args:
+        image: PIL image to display. Model inputs retain their original pixels.
+
+    Returns:
+        IPython image with an embedded JPEG preview, at most 768 pixels per side.
+    """
+    from io import BytesIO
+    from IPython.display import Image as DisplayImage
+
+    preview = image.convert("RGB")
+    preview.thumbnail((768, 768))
+    buffer = BytesIO()
+    preview.save(buffer, format="JPEG", quality=90)
+    return DisplayImage(data=buffer.getvalue(), format="jpeg")

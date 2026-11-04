@@ -1,7 +1,7 @@
 {
   "baseline": "../external/zero_plane/dataset",
   "assignments": "../external/record_assignments.csv",
-  "categories": "../data/category_map_32.csv",
+  "categories": "../src/smithsonian/data/category_map_32.csv",
   "output": "../outputs/focal_selection_new",
   "workers": 4
 }
