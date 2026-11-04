@@ -8,4 +8,5 @@ The `smithsonian` package follows the Spring team's functional organization:
 
 Install from the repository root with `python -m pip install --no-deps -e .` after
 installing requirements. Scripts and notebooks call these modules directly.
-Imports do not launch jobs, download weights, or create outputs.
+Modules are safe to import. Workflow execution starts when an entry point or
+workflow function is called.

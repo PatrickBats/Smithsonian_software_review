@@ -23,9 +23,10 @@ with the DINO checkpoint. To use the joint detector, supply its verified checkpo
 and hash, `--classes 28`, and the recorded threshold `--threshold 0.3`.
 
 `run_detection` returns region-local `xyxy` boxes. `run_inference` crops and classifies
-those boxes. The region image is already prepared: these commands do not select focal
-planes or perform whole-slide merging. [The notebook](../../../notebooks/README.md)
-connects these functions and displays their outputs.
+those boxes. Prepare the region image before running these commands; focal-plane
+selection belongs to preprocessing, and whole-slide merging belongs to the
+full-slide workflow. [The notebook](../../../notebooks/README.md) connects these
+functions and displays their outputs.
 
 ## Recorded full-slide classifier comparison
 
@@ -39,5 +40,5 @@ python -m smithsonian.inference.whole_slide.compare_rgb_dino --config config/who
 ```
 
 Remove `--preflight` only to run the full validation replay on CUDA. This command consumes
-existing detector outputs; it does not retrain or rerun the detector. The region notebook
-is the small end-to-end detection/classification demonstration.
+existing detector outputs and applies the saved classifiers to the extracted crops.
+The region notebook demonstrates both detection and classification on a small input.

@@ -86,7 +86,7 @@ These classifier results use expert-located crops. The current joint detector lo
 pipeline found 258/274; DINO identified 125 and Swin identified 93. These are separate
 validation measurements with different input preparation and thresholds.
 
-Regenerate the recorded tables without images, weights, or a GPU:
+Regenerate the tables from the included result files:
 
 ```bash
 python scripts/results.py --output outputs/results

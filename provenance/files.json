@@ -13,11 +13,11 @@
   },
   {
     "file": "NOTICE.md",
-    "sha256": "5cff3b2723d4cf4db1ddda9d140867e04c780f7c01b3cc0d60024321da952578"
+    "sha256": "a34970cddc944e1abf3b8a891d6f0bf67296a70264259fbbd95648da1b71a1ee"
   },
   {
     "file": "README.md",
-    "sha256": "7eccbea2692c3a92770a48b574ed92d08480d7bb34e24db3981358a5a242736a"
+    "sha256": "e705b53e9627e996381b982d046c7d41a5dd7dce61c6fd6b855f792340a78008"
   },
   {
     "file": "VALIDATION.md",
@@ -97,7 +97,7 @@
   },
   {
     "file": "docs/DATA.md",
-    "sha256": "f0a236757ccfd183e2ca9eef0fac58543faaff015ddf15f08b08ec9f0d573404"
+    "sha256": "6cd929859436085b75fedef92fc8200999d469de65b7c75b9f44df4a7e994c46"
   },
   {
     "file": "docs/METHODS.md",
@@ -105,11 +105,11 @@
   },
   {
     "file": "docs/QUICKSTART.md",
-    "sha256": "7e96349ea7c2782d866b00d42c9fcb6974e253d8a3b6a1d392cb967d2822269a"
+    "sha256": "ce0b5a03ac8484f23c119708c981c952f39100bef3d01a068856a8d540db1413"
   },
   {
     "file": "docs/RESULTS.md",
-    "sha256": "2b421a1c3c0fda58b91124ce987abd5884abeabd36118fc5af33aae3f7800708"
+    "sha256": "4ce20996f13b4bbfe73f2a004edd3d1fa9374be28d4fcf3cad1f837fd216e210"
   },
   {
     "file": "docs/WORKFLOWS.md",
@@ -125,11 +125,11 @@
   },
   {
     "file": "notebooks/README.md",
-    "sha256": "2fdbb5da8c2c9ecf1adb4d0ca4746666d6bf6b96aaf8667488599ecc18f7b981"
+    "sha256": "5e27c1c33f4c3df8e308c15985244655d5032cd6d4bd6a714a700d1f668f82df"
   },
   {
     "file": "notebooks/demo.ipynb",
-    "sha256": "a51c44d7ec95403ccf02108654a43b240cabd05961b95f5607f23652c8e915bb"
+    "sha256": "e87e14819ba68881710536a65c562cfca5eb835b1edead02c064d78aea4437a6"
   },
   {
     "file": "provenance/cleanup.json",
@@ -245,7 +245,7 @@
   },
   {
     "file": "src/smithsonian/README.md",
-    "sha256": "f9c9fba5400c59a07479508629a1d582fbd45d53412d04eb51b1cf14ecaa399c"
+    "sha256": "70f24fe3b611288021949a94ba947628525599e0f004d53e907e5ef7c4c259fd"
   },
   {
     "file": "src/smithsonian/__init__.py",
@@ -289,7 +289,7 @@
   },
   {
     "file": "src/smithsonian/evaluation/README.md",
-    "sha256": "287ba4440847a5ee9325a38514f38a58b0d377730a5473416a852609e8064656"
+    "sha256": "77175982a1993699aeeb0377f564d238c8f8e072af8bd8c56f41655c3e749afa"
   },
   {
     "file": "src/smithsonian/evaluation/__init__.py",
@@ -309,7 +309,7 @@
   },
   {
     "file": "src/smithsonian/inference/README.md",
-    "sha256": "26aebd92932db56d3706081faa3b41a6dbb3cedf38fd667f20f066e28fadb155"
+    "sha256": "0e11b6333695856eb80a344afbc8decee86ff43f4a4baa9dd508320449bbd294"
   },
   {
     "file": "src/smithsonian/inference/__init__.py",
@@ -317,7 +317,7 @@
   },
   {
     "file": "src/smithsonian/inference/combined.py",
-    "sha256": "75969eb84c411122f93c39cfe24fd580eb8955d0d3e86801140d2bb947caefe3"
+    "sha256": "9d1a624c776c98fe715cd33a766bf5700bc3831c083386a65e75f0ba455b5b84"
   },
   {
     "file": "src/smithsonian/inference/demo.py",
@@ -329,7 +329,7 @@
   },
   {
     "file": "src/smithsonian/inference/infer.py",
-    "sha256": "db04f2dff36c7090f6fbdb6f5c8a892c52b0f3dbba3ff686682d525585363e3f"
+    "sha256": "1dd476b0b8e1d8f40e3a49c8aa7222802276b76ba21254d30ad4180ffcebbd18"
   },
   {
     "file": "src/smithsonian/inference/whole_slide/README.md",
@@ -373,7 +373,7 @@
   },
   {
     "file": "src/smithsonian/models/README.md",
-    "sha256": "2a083f7862bd9f8778822372bd193de55b1276ca0c749f8a039b0c48f18bb45c"
+    "sha256": "0981d51fc4dfc51d59c2ff2ff4ee13efaa3b4cdda63ab45be7afb06813ea17a5"
   },
   {
     "file": "src/smithsonian/models/__init__.py",
@@ -397,7 +397,7 @@
   },
   {
     "file": "src/smithsonian/preprocessing/README.md",
-    "sha256": "d70facefe5ee2eff1507e3c71c31d9d0a1c90f8bdb03a99b55bd5d4b593ab5b1"
+    "sha256": "3c71d9570be9cf190eb2bdd03b6375b8e5e858a4ef72431574ae4d1c1f196d38"
   },
   {
     "file": "src/smithsonian/preprocessing/__init__.py",
@@ -469,7 +469,7 @@
   },
   {
     "file": "src/smithsonian/training/README.md",
-    "sha256": "041cb809f1c0059508ee404caf281d8ad7e2fcdcfdb0a37c0ac3ffc896836778"
+    "sha256": "3a57a1351285e30deeca79f325b4c092ae33be0faf1735464da9f47a88899281"
   },
   {
     "file": "src/smithsonian/training/__init__.py",
@@ -481,7 +481,7 @@
   },
   {
     "file": "src/smithsonian/training/detector/README.md",
-    "sha256": "6d167b1563200434930dc16dcfa7ec51b479ff8c60e3d657cb63413166f50667"
+    "sha256": "d3dbdb7a94c7659e9e7a4494667a05aaf589e871e578ce42c6e3874c4ffe2583"
   },
   {
     "file": "src/smithsonian/training/detector/__init__.py",
@@ -505,7 +505,7 @@
   },
   {
     "file": "tests/README.md",
-    "sha256": "a2c3885ffbf4eb785438849c3ee75a6a9e7a5e064ab5b3f57a72b58ca95d533d"
+    "sha256": "bd420b88bf63ebc3dee324b25545cab961e45ace2ae33225aa924a191608ef35"
   },
   {
     "file": "tests/smoke_training.py",

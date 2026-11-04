@@ -1,8 +1,8 @@
 # Training
 
 The entry points train models on frozen training specimens and use the documented
-validation protocol. They never run reserved-test inference. Run these commands only
-when training is intended; the notebook uses saved checkpoints.
+validation protocol. The test set remains reserved for final evaluation.
+The notebook uses saved checkpoints; the commands below start training.
 
 ## Swin and DINO
 
@@ -36,5 +36,5 @@ and masks classification loss for unmatched predictions overlapping ignored boxe
 Matched labeled objects retain their original classification and box supervision.
 
 `--resume` requires a compatible run record and resume checkpoint. Runtime state and
-source/input identities are recorded beside outputs. There is no default elapsed-time
-cutoff; optional segment duration is used only when explicitly requested.
+source/input identities are recorded beside outputs. By default, training runs
+for the configured number of updates. An optional segment duration can be set explicitly.

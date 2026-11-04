@@ -15,7 +15,8 @@ python -m smithsonian.preprocessing.full_tenengrad --config config/preprocessing
 ```
 
 The template needs the verified baseline crop manifest and frozen assignments. Image
-preparation preserves split membership; it does not evaluate the reserved test set.
+preparation preserves split membership. The test specimens remain reserved
+for final evaluation.
 
 ## Detector training crops
 
@@ -39,5 +40,5 @@ detector on training windows and preserves category-labeled boxes.
 
 `detector/` retains baseline input/grid utilities needed to reconstruct the recorded
 validation export. Its manifest-bound inputs must be retrieved intact; new category or
-split definitions require a separately designed experiment. No old A1/A2/A3 training
-commands are included in this submission.
+split definitions require a separately designed experiment. Historical A1/A2/A3
+training workflows remain in the working repository and Git history.

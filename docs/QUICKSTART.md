@@ -1,7 +1,7 @@
 # First-run walkthrough
 
-Follow these steps from top to bottom. Step 1 works without the microscopy data.
-Steps 2–3 use existing model weights and do not launch training.
+Follow these steps from top to bottom. Step 1 displays the included results.
+Steps 2–3 run saved model weights on a validation specimen.
 
 ## 1. Check the repository and view results
 
@@ -29,8 +29,8 @@ checks, and `outputs/first_comparison/` contains:
 | `detection.csv` | Current joint detector recovery and correct-identification counts |
 | `rgb_comparison.csv` | Swin/DINO comparison on identical detector crops |
 
-These commands regenerate outputs from recorded aggregate metrics. They do not
-rerun the models. See [the results guide](RESULTS.md) for inference replay commands.
+These commands regenerate outputs from recorded aggregate metrics. See
+[the results guide](RESULTS.md) for inference replay commands.
 
 ## 2. Run Swin on a real specimen
 
@@ -51,9 +51,9 @@ after installation if you skipped step 1. The end-to-end notebook is described i
 ### Retrieve the inputs
 
 You need an authorized Rice account with project-allocation access and network/VPN
-access to NOTS. Replace `YOUR_NETID` below. These commands copy files only; they do
-not submit a cluster job. If you cannot access NOTS, ask the project team for an
-authorized copy of these exact files, then continue with verification.
+access to NOTS. Replace `YOUR_NETID` below. The commands copy the crop bundle and
+checkpoint to your local machine. If access is unavailable, ask the project team
+for an authorized copy of these exact files, then continue with verification.
 
 ```bash
 export RICE_ACCOUNT=YOUR_NETID
@@ -90,8 +90,8 @@ replace an existing destination. If you already copied the checkpoint, omit
 
 ### Select and verify the example
 
-Use the first validation example listed in the repository. This selects the file
-and checks its image hash, so no filename needs to be guessed:
+Select the first validation example from the repository manifest and verify its
+image hash:
 
 ```bash
 export CROP="$(python - <<'PYCODE'
@@ -129,13 +129,13 @@ PYCODE
 | JSON field | Meaning |
 | --- | --- |
 | `predictions[].category` | Model's highest-scoring category |
-| `predictions[].score` | Uncalibrated model probability; not a guarantee of correctness |
+| `predictions[].score` | Uncalibrated model probability assigned to the predicted category |
 | `predictions[].probabilities` | Scores in the order of the top-level `categories` list |
 | `predictions[].box` | `null` for an already cropped specimen; xyxy coordinates when supplying boxes |
 | `image_sha256`, `checkpoint_sha256` | Exact input and weight identities |
 
-This command produces JSON, not an annotated image. Open the input PNG separately
-to inspect the specimen. A successful run does not mean every prediction is correct.
+The command saves predictions as JSON. Open the input PNG to inspect the specimen
+and compare the predicted category with its expert reference.
 
 ## 3. Compare DINO on the same crop
 
@@ -154,9 +154,8 @@ python scripts/infer.py --model dino --checkpoint weights/dino.pt --dino-source 
 
 **Expected:** preflight passes and DINO writes one prediction. For this example,
 DINO predicted **Platycarya platycarioides** with a score of about **0.694** in the
-tested CPU environment—an incorrect prediction. DINO's better aggregate validation
-accuracy does not mean it wins on every specimen. This example illustrates that
-correctly running software and correctly identifying a specimen are different checks.
+tested CPU environment. The expert reference is **Taxodium sp.**, so DINO
+misclassified this specimen. Swin classified it correctly in step 2.
 
 ## Troubleshooting
 
@@ -169,8 +168,8 @@ correctly running software and correctly identifying a specimen are different ch
 | Unknown checkpoint | Use a checkpoint in `config/checkpoints.json`; the demo deliberately checks its identity |
 | DINO source is missing or has the wrong revision | Check out the exact commit above and set `DINO_SOURCE` |
 | xFormers unavailable warning on CPU | The tested CPU demo works without xFormers |
-| A prediction disagrees with the reference | Record it as a model error; inspect the image and labels rather than changing the reference to match the prediction |
+| A prediction disagrees with the reference | Record the disagreement and review the image and reference label with an expert |
 
 Next: use the [workflow guide](WORKFLOWS.md) for detector integration and the
-[results guide](RESULTS.md) for full validation replay. No step above uses the
-reserved test specimens for inference.
+[results guide](RESULTS.md) for full validation replay. The examples above use
+validation specimens; the test set remains reserved.

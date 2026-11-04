@@ -2,7 +2,7 @@
 
 `results/` contains current classifier, joint-detector, and combined-pipeline aggregate
 records. Regenerate tables with `python scripts/results.py --output outputs/results`.
-The output directory must be new. This command does not rerun models.
+Choose a new output directory for the generated tables.
 
 The joint result is the crop-and-ignore-region run at confidence 0.30: 243 of 274 known
 targets located, 85 correctly identified. Its source revision is recorded in

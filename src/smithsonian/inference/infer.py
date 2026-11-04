@@ -1,6 +1,6 @@
 """Classify an RGB crop or supplied region-local detection boxes with a frozen model.
 
-This small demo does not evaluate a dataset or run whole-slide detection.
+This demo classifies one image or the crops defined by supplied boxes.
 """
 
 from smithsonian.configuration.options import ConfigArgumentParser, save_effective_config

@@ -17,7 +17,7 @@ https://github.com/facebookresearch/dinov2
 Swin-Tiny uses torchvision's implementation:
 https://github.com/pytorch/vision
 
-RF-DETR and RF-DETR+ are installed dependencies, not vendored source:
+RF-DETR and RF-DETR+ are installed through the requirements file:
 https://github.com/roboflow/rf-detr
 
 Upstream packages retain their own license notices and terms. No blanket license

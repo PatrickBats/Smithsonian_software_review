@@ -4,7 +4,8 @@
 
 **Inputs:** Trusted verified checkpoints, RGB crops, optional pinned DINO source.
 
-**Outputs:** Torch models, ordered labels and probabilities; importing the package starts no downloads.
+**Outputs:** Torch models, ordered labels and probabilities. Model loading occurs
+when `load_classifier` is called.
 
 
 See the [root README](../../../README.md) for installation and workflow entry points.

@@ -1,7 +1,7 @@
 """Detect specimens in one prepared RGB region and classify their crops.
 
 The command interface follows the team's Method B organization proposal. This
-implementation calls shared functions directly rather than launching subprocesses.
+implementation calls shared detection and classification functions directly.
 """
 
 from argparse import Namespace

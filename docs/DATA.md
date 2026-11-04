@@ -4,8 +4,8 @@ For a complete copy-and-run example, use the [first-run walkthrough](QUICKSTART.
 This page describes the storage layout and additional inputs for larger workflows.
 
 The minimum classifier demo needs **one PNG, one verified checkpoint, and the
-classifier environment**. The provided crop bundle is a convenient way to obtain
-verified examples; raw NDPI slides are not needed for this demo.
+classifier environment**. The provided crop bundle contains verified examples
+ready for inference.
 
 ## Access
 
@@ -15,10 +15,9 @@ course/project team for allocation membership if access is denied. Use your own
 account; no passwords or keys belong in this repository.
 
 The shared project artifact root is `/rhf/allocations/dsci435/Smithsonian_F26`.
-This is a documented storage location, not an execution requirement. On a machine
-where it is mounted, set `SMITHSONIAN_ROOT` to that root. On a workstation, copy
-only the required inputs to a private external directory and retain the relative
-layout below. Do not copy whole slides merely to run the crop demo.
+On a machine where this location is mounted, set `SMITHSONIAN_ROOT` to that root.
+On a workstation, copy the required inputs to a private external directory and
+retain the relative layout below. The crop demo uses the prepared PNG images.
 
 ```bash
 # Optional full run download; the walkthrough downloads only the required weights.
@@ -28,10 +27,9 @@ scp -r YOUR_NETID@nots.rice.edu:/rhf/allocations/dsci435/Smithsonian_F26/runs/br
 ```
 
 Create `external/runs` first. For the smallest download, retrieve only `best.pt`
-from the run path in `config/checkpoints.json` rather than a full run directory.
+from the run path in `config/checkpoints.json`.
 The artifact tool verifies the received bytes. The instructor needs an authorized
-account or a separately supplied authorized artifact bundle; these are not public
-anonymous download URLs.
+account or a separately supplied authorized artifact bundle.
 
 ## Input layout
 
@@ -52,8 +50,8 @@ hashes. `examples/crops.json` selects three validation examples from that export
 
 Training retains exact frozen hashes. Do not edit the assignment CSV to repair
 paths. Raw-slide workflows need the original paths recorded in external manifests
-or a compatible read-only mount. Portable crop inference does not depend on those
-raw-slide paths.
+or a compatible read-only mount. Crop inference uses the local paths in your
+configuration.
 
 ## Upstream sources
 
@@ -74,8 +72,9 @@ export SPRING_SOURCE="$PWD/external/spring"
 
 Access to that repository may require organization membership. Upstream code is
 kept outside the submission, at a fixed revision. DINO inference loads the complete
-fine-tuned weights strictly and does not download a new backbone. DINO training
-uses the official pretrained backbone and may download those initialization weights.
+fine-tuned weights from the supplied checkpoint with strict parameter matching.
+DINO training uses the official pretrained backbone and may download those
+initialization weights.
 
 ## Preflight
 
@@ -84,8 +83,9 @@ python scripts/preflight.py --artifact-root "$SMITHSONIAN_ROOT" --crops "$CROP_R
 ```
 
 This validates both separate-slide checkpoint hashes, the example images, source
-revision, and installed classifier dependencies. It does not assert successful
-whole-slide inference or validate source taxonomy. All raw microscopy is read-only.
+revision, and installed classifier dependencies. Whole-slide inference requires
+a separate execution check; category definitions require expert review. Raw
+microscopy files are opened read-only.
 
 ## Download the crop bundle
 
@@ -100,7 +100,7 @@ export ASSIGNMENTS="$PWD/external/classifier_inputs/record_assignments.csv"
 ```
 
 The bundle is approximately 314 MB and contains prepared crops and required
-scientific manifests, not whole slides. It includes reserved test files only for
+scientific manifests. It includes reserved test files only for
 input-integrity checks; the demo manifest selects validation images exclusively.
 Do not run model selection or example inference on the test folder.
 
@@ -111,8 +111,7 @@ checkpoint listed in [examples/region.json](../examples/region.json). Request th
 from the team's authorized artifact custodian, placing them under `external/demo/`
 or pointing your local JSON at an existing authorized copy. They are separate from
 the classifier bundle. The preflight checks their full SHA-256 hashes before use.
-The filenames alone do not establish identity; a different detector checkpoint
-cannot be substituted into this recorded demonstration.
+Use the exact checkpoint listed in the manifest to reproduce this demonstration.
 
 ## Current joint detector
 
@@ -126,4 +125,4 @@ for evaluation. The crop-generation baseline needs `inputs/priority_records.csv`
 
 Use local configurations to point to retrieved copies. Source paths inside historical
 NDPI manifests remain immutable and require compatible mounts. The PNG region demo
-works without those mounts.
+uses locally configured image and checkpoint paths.

@@ -12,13 +12,14 @@ python scripts/results.py --output outputs/results
 The first command runs the saved joint checkpoint on the fixed validation grid and writes
 predictions, reference matches, and summary JSON. The second only converts existing
 aggregate records into `classification.csv`, `detection.csv`, `rgb_comparison.csv`, and
-`classification.svg`; it needs no models or images.
+`classification.svg` using the included result files.
 
 - Classifier accuracy: correct labels among the evaluated crops.
 - Detection recall: located targets divided by annotated targets.
 - Classification among detections: correct labels divided by matched detections.
 - End-to-end success: targets both located and correctly labeled divided by all annotated targets.
 
-Incomplete scene labels leave unmatched predictions unreviewed; these are not automatically
-false positives. The stored detector metrics report known-target recovery. Classifier
-macro-F1 averages over categories with reference examples.
+With incomplete scene annotations, unmatched predictions require expert review
+to determine whether they are real specimens or false positives. The stored
+detector metrics report known-target recovery. Classifier macro-F1 averages over
+categories with reference examples.
