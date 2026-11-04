@@ -6,7 +6,7 @@ Choose a new output directory for the generated tables.
 
 The joint result is the crop-and-ignore-region run at confidence 0.30: 243 of 274 known
 targets located, 85 correctly identified. Its source revision is recorded in
-`provenance/cleanup.json`; checkpoint identity is in `config/checkpoints.json`.
+[NOTICE.md](../NOTICE.md); checkpoint identity is in `config/checkpoints.json`.
 
 The classifier records use expert-located crops. The RGB comparison uses the same
 258 matched detected crops for both classifiers, with 274 known targets overall.

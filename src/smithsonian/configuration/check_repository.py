@@ -1,10 +1,8 @@
-"""Dependency-free submission checks: hashes, links, syntax, and excluded content."""
+"""Dependency-free submission checks: links, syntax, and excluded content."""
 
 from smithsonian.configuration.paths import repository_root
 
 import ast
-import hashlib
-import json
 import re
 from urllib.parse import unquote, urlsplit
 
@@ -13,7 +11,7 @@ SKIP = {".git", ".venv", "external", "outputs", "weights", "__pycache__"}
 
 
 def check():
-    """Check local links, syntax, excluded artifacts, and recorded file hashes.
+    """Check local links, syntax, and excluded artifacts.
 
     Returns:
         List of errors; an empty list indicates success.
@@ -41,12 +39,6 @@ def check():
                     continue
                 if not (p.parent / unquote(target.split("#")[0])).exists():
                     errors.append(f"Broken link in {relative}: {target}")
-    manifest = ROOT / "provenance/files.json"
-    if manifest.exists():
-        for item in json.loads(manifest.read_text()):
-            p = ROOT / item["file"]
-            if not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest() != item["sha256"]:
-                errors.append(f"Package fingerprint mismatch: {item['file']}")
     return errors
 
 
@@ -55,7 +47,7 @@ def main():
     errors = check()
     if errors:
         raise SystemExit("\n".join(errors))
-    print("Submission syntax, links, file policy, and available package fingerprints passed.")
+    print("Submission syntax, links, and file policy passed.")
 
 
 if __name__ == "__main__":

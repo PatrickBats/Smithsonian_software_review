@@ -21,8 +21,8 @@ Checked November 3, 2026 with Python 3.13 on Linux using CPU models.
   specimens across 47 slides, including positions, padding, identities, and clipped boxes.
 - Existing classifier and combined aggregate result files are byte-identical.
 
-Machine-readable outcomes are in `provenance/validation.json`. Original imports and
-source revisions remain in `provenance/`; current file hashes are in `provenance/files.json`.
+Source credits and revisions are listed in [NOTICE.md](NOTICE.md). Checkpoint
+identities are recorded in `config/checkpoints.json`.
 
 ## Limits
 

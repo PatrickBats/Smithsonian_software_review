@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 def repository_root() -> Path:
-    """Find the checkout containing configuration and scientific provenance.
+    """Find the checkout containing the checkpoint configuration.
 
     Returns:
         Absolute checkout path, optionally selected by SMITHSONIAN_REPOSITORY.

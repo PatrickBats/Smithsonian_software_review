@@ -12,7 +12,7 @@ first and run commands from the repository root.
 | `evaluate_detector.py` | Evaluate the joint detector on its fixed validation grid |
 | `results.py` | Regenerate tables and a chart from saved results |
 | `artifacts.py`, `preflight.py` | Verify external inputs/checkpoints |
-| `check_repository.py` | Check source, links, file policy, and fingerprints |
+| `check_repository.py` | Check source syntax, documentation links, and submission contents |
 | `classification/` | Compatibility commands for current classifier preparation/training |
 
 Use `--help` for arguments. Package component READMEs give complete command examples.

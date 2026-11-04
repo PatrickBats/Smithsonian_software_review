@@ -1,9 +1,8 @@
 # Source attribution
 
 This package combines the Fall 2026 Rice D2K Smithsonian team's software for
-fossil palynomorph detection and classification. Imported source fingerprints and
-revisions are recorded in `provenance/import_manifest.json`; final package hashes
-are in `provenance/files.json`.
+fossil palynomorph detection and classification. Source repositories and revisions
+for adapted code are listed below.
 
 Spring boundary-aware deduplication, tile structures, and LoG focus fusion follow
 RiceD2KLab/Smithsonian_fossil_Sp26, revision
@@ -34,6 +33,7 @@ Spring adapter is loaded only for whole-slide replay.
 
 Current ignore-region training and evaluation were adapted from the Fall team's
 `method-a-ignore-regions` branch at commit
-`8174c47939430d873a4f42b023f35fe7516aa168`. Original source hashes and the migration
-record are retained in `provenance/cleanup.json`. Functional names describe the code's
-role; historical external artifact paths retain their original spelling.
+`8174c47939430d873a4f42b023f35fe7516aa168` in
+[PatrickBats/Smithsonian_fossil_F26](https://github.com/PatrickBats/Smithsonian_fossil_F26),
+under `scripts/method_a_ignore_regions/`. Historical external artifact paths retain
+their original spelling.
