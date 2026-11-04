@@ -1,94 +1,117 @@
 # Fossil pollen detection and classification
 
-This project helps researchers locate fossil pollen in microscope images and
-identify its category. Identifying pollen provides evidence about past vegetation;
-manually finding and naming specimens requires expert time.
+## Introduction
 
-**Start with the [first-run walkthrough](docs/QUICKSTART.md).** It takes you from a
-fresh checkout to inspecting the supplied results, then running a classifier on a
-real specimen. The first part needs no data access, model weights, or GPU.
+This Rice D2K project helps Smithsonian researchers locate fossil pollen in microscope
+images and identify its category. It compares two approaches: RF-DETR predicts locations
+and categories together; a single-class detector supplies specimen crops to Swin-Tiny
+or DINOv2 for classification.
 
-## What the software does
+**Students:** Patrick Batsell, Yun Ying Tsai, Yeonju Kim, Yunfan Bao, Alan Yang.
 
-| Approach | Input → processing → output | Code |
-| --- | --- | --- |
-| **Find and identify together** | Image region → RF-DETR → boxes and category predictions | [RF-DETR workflow](docs/WORKFLOWS.md#rf-detr-method-a) |
-| **Find first, identify second** | Image region → detector → specimen crops → Swin or DINO → category predictions | [Combined inference](docs/WORKFLOWS.md#small-detector-to-classifier-example) |
+**Faculty mentor:** Arko Barman. **PhD mentor:** Nhi Le.
 
-Swin and DINO are alternative classifiers. They identify the category of a cropped
-specimen; they do not locate specimens across an entire microscope slide.
+**Sponsors:** Ingrid Romero and Scott Wing, Smithsonian Institution.
 
-```mermaid
-flowchart LR
-    I[Microscope image region] --> A[RF-DETR: find and identify]
-    A --> R[Locations and categories]
-    I --> D[Detector: find specimens]
-    D --> C[Individual specimen crops]
-    C --> S[Swin or DINO: identify]
-    S --> R
+The project builds on the Spring 2026 team's microscopy pipeline. Adapted code and
+model sources are credited in [NOTICE.md](NOTICE.md).
+
+## Repository structure
+
+| Folder | Contents |
+| --- | --- |
+| `src/smithsonian/data/` | Category grouping and frozen specimen splits |
+| `src/smithsonian/preprocessing/` | Focal selection, detector crops, and ignore regions |
+| `src/smithsonian/models/` | Swin/DINO models and shared detector structures |
+| `src/smithsonian/training/` | Classifier and joint RF-DETR training |
+| `src/smithsonian/inference/` | Image detection, crop classification, combined demo |
+| `src/smithsonian/evaluation/` | Matching, validation metrics, and saved-result tables |
+| `scripts/` | Thin command-line entry points |
+| `config/` | JSON settings and checkpoint identities |
+| `notebooks/` | One end-to-end region demo |
+| `tests/` | Input, geometry, loss, and configuration checks |
+| `data/`, `examples/`, `results/` | Small maps, example manifests, and aggregate results |
+
+Each component README describes its interfaces and commands.
+
+## Installation
+
+Use **Python 3.13**. The checked environment is Linux with CPU inference.
+
+```bash
+git clone https://github.com/PatrickBats/Smithsonian_software_review.git
+cd Smithsonian_software_review
+python3.13 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pip install --no-deps -e .
+python -m pip check
 ```
 
-The code includes preparation, training, validation, and inference. Small demos
-accept PNG/JPEG regions or crops. Full NDPI-slide workflows require additional
-external data and the documented runtime; they are not a single plug-and-play app.
+On Windows, activate with `.venv\Scripts\activate`. Raw-slide workflows may require
+Linux and access to the source paths recorded in their manifests. For GPU training,
+install matching CUDA builds of the same PyTorch/torchvision versions in a separate
+environment; the supplied requirements select CPU wheels. Training is an explicit command.
 
-## Choose where to start
+## Data
 
-| What you want to do | What you need | Start here |
-| --- | --- | --- |
-| Inspect results and check the code | Python 3.13 and Git | [No-data walkthrough](docs/QUICKSTART.md#1-check-the-repository-and-view-results) |
-| Classify one real specimen | CPU environment, crop bundle, Swin checkpoint | [Swin example](docs/QUICKSTART.md#2-run-swin-on-a-real-specimen) |
-| Compare DINO on the same specimen | DINO checkpoint and pinned source checkout | [DINO example](docs/QUICKSTART.md#3-compare-dino-on-the-same-crop) |
-| Detect and classify an image region | Detector runtime and matching weights | [Combined inference](docs/WORKFLOWS.md#small-detector-to-classifier-example) |
-| Reproduce an evaluation or training run | Frozen data, configurations, checkpoints; GPU for training | [Results-to-command guide](docs/RESULTS.md) |
+Images and weights remain external. [Data setup](docs/DATA.md) gives retrieval locations,
+checkpoint hashes, and required dataset layouts. The modeling task uses 28 categories.
+Frozen category maps and split memberships are preserved.
 
-## What the current results mean
+Copy a [configuration template](config/README.md) to `config/local.<name>.json` and set
+its paths. JSON paths resolve relative to that file; command-line paths resolve relative
+to the working directory. Command-line options override JSON settings.
 
-The completed **28-category classifier comparison** uses expert-located specimen
-crops. These are validation accuracies:
+## Data preprocessing
 
-| Classifier | Unseen-slide validation | Shared-slide validation |
+Classifier crops use specimen-level focal selection. Joint RF-DETR training uses
+focus-stacked, target-centered windows and ignore regions for additional candidate
+specimens without category labels. [Preprocessing instructions](src/smithsonian/preprocessing/README.md)
+explain both routes and the required inputs.
+
+## Modeling and evaluation
+
+[Training instructions](src/smithsonian/training/README.md) cover RF-DETR, Swin, and DINO.
+[Evaluation instructions](src/smithsonian/evaluation/README.md) distinguish classification
+accuracy, known-target detection recall, and end-to-end identification.
+
+| Classifier | Separate-slide validation accuracy | Shared-slide validation accuracy |
 | --- | ---: | ---: |
 | Swin-Tiny | 42.94% | 70.61% |
-| Partially fine-tuned DINO | 50.14% | 74.35% |
+| DINOv2 | 50.14% | 74.35% |
 
-“Unseen slides” keeps source groups out of training. “Shared slides” uses different
-specimens but allows training and validation examples from the same slides.
-Neither column measures whole-slide detection accuracy. The final test set is
-reserved. See [evaluation definitions](docs/METHODS.md) and
-[result reproduction](docs/RESULTS.md) for the separate detector and combined results.
+These classifier results use expert-located crops. The current joint detector located
+243/274 known targets and correctly identified 85/274 at confidence 0.30. The combined
+pipeline found 258/274; DINO identified 125 and Swin identified 93. These are separate
+validation measurements with different input preparation and thresholds.
 
-## Where the data live
+Regenerate the recorded tables without images, weights, or a GPU:
 
-Git contains code, category maps, and small aggregate results. Original images,
-prepared crops, and trained weights are stored externally in the Rice project
-allocation. **Public GitHub access does not grant access to those files.**
+```bash
+python scripts/results.py --output outputs/results
+```
 
-The [data guide](docs/DATA.md) explains account access, exact file locations,
-checkpoint verification, and path configuration. The first-run walkthrough downloads
-only the prepared crop bundle and selected checkpoint, not whole microscope slides.
+## Usage
 
-## Repository map
+[notebooks/demo.ipynb](notebooks/demo.ipynb) demonstrates a real specimen, saved Swin/DINO
+predictions, RF-DETR detection, extracted crops, and annotated classification outputs.
+Follow [notebook setup](notebooks/README.md), then run:
 
-| Location | Purpose |
-| --- | --- |
-| `scripts/infer.py`, `scripts/detect.py` | Small image/crop inference entry points |
-| `scripts/classification/` | Focal-plane preparation and Swin/DINO training |
-| `scripts/method_a/`, `scripts/method_a_focus_stack_v1/` | RF-DETR data variants and baseline reproduction |
-| `scripts/pipeline_abbas_v1/`, `scripts/rfdetr_rgb_classifier/` | Detector/classifier handoff and evaluation |
-| `config/`, `data/`, `examples/` | Path templates, checkpoint hashes, category maps, example identities |
-| `results/`, `reports/` | Aggregate evidence used to regenerate tables and figures |
-| `tests/`, `provenance/` | Regression checks and source/file fingerprints |
+```bash
+jupyter lab notebooks/demo.ipynb
+```
 
-## Further instructions
+For individual image commands, see [inference](src/smithsonian/inference/README.md).
+For a first run with artifact retrieval, see [the walkthrough](docs/QUICKSTART.md).
 
-- [First-run walkthrough and troubleshooting](docs/QUICKSTART.md)
-- [Data, weights, and source dependencies](docs/DATA.md)
-- [Workflow commands and reusable interfaces](docs/WORKFLOWS.md)
-- [Results-to-command guide](docs/RESULTS.md)
-- [Scientific protocol](docs/METHODS.md)
-- [What has been tested](VALIDATION.md)
-- [Source attribution](NOTICE.md)
+## Checks
 
-The setup was checked on Linux with Python 3.13. Model demos run on CPU; training
-requires the documented GPU environment. Use a new output location for each run.
+```bash
+python scripts/check_repository.py
+python -m unittest discover -s tests -v
+ruff check src scripts tests
+ruff format --check src scripts tests
+```
+
+[VALIDATION.md](VALIDATION.md) records completed checks and remaining environment limits.

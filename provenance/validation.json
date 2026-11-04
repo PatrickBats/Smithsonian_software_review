@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-03",
+  "environment": "Python 3.13, Linux, torch 2.10.0 CPU",
+  "unit_tests": 17,
+  "notebook": "All cells executed on existing validation specimen and region; distributed outputs cleared.",
+  "numerical_checks": {
+    "patch_criterion_for_ignore": "Original and migrated numerical ASTs match, ignoring docstrings.",
+    "seed_class_head_from_one_class": "Original and migrated numerical ASTs match, ignoring docstrings.",
+    "pollen_row_for": "Original and migrated numerical ASTs match, ignoring docstrings.",
+    "summarize": "Original and migrated numerical ASTs match, ignoring docstrings.",
+    "crop_planning": "All window positions, source identities, margins, padding and clipped boxes match on 1,605 synthetic specimens across 47 slides.",
+    "saved_classifier_results": "All five prior classifier/combined aggregate JSON files are byte-identical."
+  },
+  "inference_checks": {
+    "specimen_swin.json": {
+      "max_absolute_difference": 0.0,
+      "labels_match": true
+    },
+    "specimen_dino.json": {
+      "max_absolute_difference": 0.0,
+      "labels_match": true
+    },
+    "combined_swin.json": {
+      "max_absolute_difference": 0.0,
+      "labels_match": true
+    },
+    "combined_dino.json": {
+      "max_absolute_difference": 0.0,
+      "labels_match": true
+    },
+    "detector": "Identical detector outputs"
+  },
+  "limits": [
+    "Full NDPI preprocessing and whole-slide replay were not rerun.",
+    "No scientific training or test-set inference was performed.",
+    "OpenCV 4.13 IPP GaussianBlur showed allocation-dependent differences on this host, also in the pre-refactor environment. The focal-fusion equivalence test disables IPP and restores its setting afterward; production preprocessing is unchanged."
+  ]
+}

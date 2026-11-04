@@ -1,0 +1,5 @@
+{
+  "baseline": "../external/detector_baseline",
+  "output": "../outputs/detector_crops",
+  "seed": 20261013
+}

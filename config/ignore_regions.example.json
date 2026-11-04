@@ -1,0 +1,10 @@
+{
+  "dataset": "../outputs/detector_crops/dataset",
+  "detector": "../external/weights/rfdetr(2xl)_best_plane.pth",
+  "sha256": "3bec840a984efc5b56471f1a4c3222e445661dda61ef69ea18a38cff1978a246",
+  "out": "../outputs/detector_ignore",
+  "conf": 0.3,
+  "iou": 0.5,
+  "resolution": 1000,
+  "device": "cpu"
+}

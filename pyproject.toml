@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smithsonian-fossil"
+version = "0.2.0"
+description = "Reproducible fossil specimen preprocessing, detection and classification"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+smithsonian-infer = "smithsonian.inference.infer:main"
+smithsonian-detect = "smithsonian.inference.detect:main"
+smithsonian-results = "smithsonian.evaluation.results:main"
+smithsonian-preflight = "smithsonian.io.preflight:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+exclude = ["external", "outputs", ".venv"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+ignore = ["F401", "F403", "F405"]

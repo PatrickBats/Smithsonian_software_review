@@ -1,0 +1,7 @@
+{
+  "model": "swin",
+  "checkpoint": "../external/runs/broad_swin_2026-10-08/separate_slides/ordinary_baseline/best.pt",
+  "image": "../external/specimen.png",
+  "device": "cpu",
+  "output": "../outputs/specimen.json"
+}

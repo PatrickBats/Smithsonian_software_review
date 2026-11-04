@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-03",
+  "historical_workflows": "Retained in the original working repository and pre-cleanup local backup.",
+  "detector_source": {
+    "repository": "PatrickBats/Smithsonian_fossil_F26",
+    "commit": "8174c47939430d873a4f42b023f35fe7516aa168",
+    "source_directory": "scripts/method_a_ignore_regions",
+    "sha256": {
+      "train_ignore.py": "53a26e24cde549782f6d7f153ac63e698be588870026c0cbba2a0390aa5861b5",
+      "evaluate_run.py": "ec82baef375a5c812d7381320035aebc0d1b4d44402c2015b91e37e718810413",
+      "make_ignore_labels.py": "40090794a006edd751cd2e7eb0acec22b0b23c0b5ea74d0c37754bac7e493d08",
+      "spring_nms.py": "ac255082c2998683ae9365cf42ee575dcd535a1dbe2fd4681ce4458885402911"
+    }
+  }
+}

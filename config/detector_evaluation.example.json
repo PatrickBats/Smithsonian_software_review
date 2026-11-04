@@ -1,0 +1,7 @@
+{
+  "run": "../external/joint_detector_run",
+  "baseline": "../external/detector_baseline",
+  "out": "../outputs/detector_evaluation",
+  "thresholds": "0.30",
+  "device": "cpu"
+}

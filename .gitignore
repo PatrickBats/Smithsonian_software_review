@@ -9,3 +9,8 @@ config/local*
 *.pth
 *.ndpi
 *.ndpa
+*.egg-info/
+.ruff_cache/
+.ipynb_checkpoints/
+build/
+dist/

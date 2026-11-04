@@ -26,5 +26,17 @@
     "architecture": "dino",
     "categories": 28,
     "split": "shared_slides"
+  },
+  "single_class_detector": {
+    "relative_path": "weights/rfdetr(2xl)_best_plane.pth",
+    "sha256": "3bec840a984efc5b56471f1a4c3222e445661dda61ef69ea18a38cff1978a246",
+    "architecture": "rfdetr_2xl",
+    "categories": 1
+  },
+  "joint_detector": {
+    "relative_path": "model_A/runs/A4_ignore_springinit_20261021_debug/train/checkpoint_final_ema.pth",
+    "sha256": "14839e77e1db2ccdf9a8b86b6abdc03ecca1a0028604e4dd0147b4fdff5dd70e",
+    "architecture": "rfdetr_2xl",
+    "categories": 28
   }
 }
