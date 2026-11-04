@@ -1,0 +1,15 @@
+{
+  "data": "../external/classifier_inputs/dataset",
+  "assignments": "../external/record_assignments.csv",
+  "categories": "../data/category_map_32.csv",
+  "broad_map": "../data/fine_to_broad.csv",
+  "output": "../../smithsonian_training_new",
+  "epochs": 40,
+  "head_epochs": 3,
+  "batch_size": 32,
+  "seed": 20261007,
+  "head_lr": 0.001,
+  "finetune_backbone_lr": 1e-05,
+  "finetune_head_lr": 0.0001,
+  "weight_decay": 0.01
+}

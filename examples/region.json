@@ -1,0 +1,10 @@
+{
+  "image": "f1921738c5ed013195da4ed8.png",
+  "sha256": "6052bdccabe18da789d3e9648dafee49be0fa8c286e71263c3735613df5f1056",
+  "split": "val",
+  "checkpoint": "checkpoint_best_total.pth",
+  "checkpoint_sha256": "5cd27dae13c273e0bcdaf8c20068c65673596ccd1b643b0cf9e3a76fe956db6d",
+  "classes": 1,
+  "threshold": 0.5,
+  "scope": "Existing validation demonstration; not a performance estimate"
+}

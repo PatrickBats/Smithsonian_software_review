@@ -24,3 +24,16 @@ Upstream packages retain their own license notices and terms. No blanket license
 is asserted over the sponsor's data or source with no supplied license. The
 external source checkouts retain their upstream notices. Raw images and pretrained
 weight payloads are not redistributed inside this submission.
+
+## Adapted code
+
+Tile structures and boundary-aware deduplication are in `src/smithsonian/models/`.
+Streaming LoG fusion is in `src/smithsonian/preprocessing/detector_crops/focus_helpers.py`.
+These retain credit to Shaikh et al. and the Rice D2K Spring 2026 team. The external
+Spring adapter is loaded only for whole-slide replay.
+
+Current ignore-region training and evaluation were adapted from the Fall team's
+`method-a-ignore-regions` branch at commit
+`8174c47939430d873a4f42b023f35fe7516aa168`. Original source hashes and the migration
+record are retained in `provenance/cleanup.json`. Functional names describe the code's
+role; historical external artifact paths retain their original spelling.

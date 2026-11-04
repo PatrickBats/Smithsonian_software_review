@@ -1,0 +1,9 @@
+{
+  "frozen": "../external/model_B/runs/abbas_rgb_input_check_v1",
+  "references": "../external/model_B/runs/abbas_focus_stack_v1/separate_slides/ordinary_baseline",
+  "swin_checkpoint": "../external/runs/broad_swin_2026-10-08/separate_slides/ordinary_baseline/best.pt",
+  "dino_run": "../external/runs/broad_dino_2026-10-08/separate_slides/backbone_finetune",
+  "dino_source": "../external/dinov2",
+  "spring_source": "../external/spring",
+  "output": "../outputs/combined_replay"
+}

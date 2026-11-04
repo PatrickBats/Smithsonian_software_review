@@ -39,7 +39,7 @@ anonymous download URLs.
 | --- | --- |
 | Classifier demo | A checkpoint and RGB PNG crop; DINO also requires its pinned source checkout |
 | Classifier training | Frozen assignment CSV, category map, verified zero-plane or Tenengrad crop export |
-| Method A | `processed/method_a_focus_stack_v1/` baseline inputs, plans, COCO files and image hashes; generic RF-DETR weights |
+| Joint RF-DETR | `processed/method_a_focus_stack_v1/` baseline metadata/validation export; current target crops and ignore boxes; verified best-plane single-class initialization |
 | RGB combined comparison | `model_B/runs/abbas_rgb_input_check_v1/`, original validation references, source NDPI images, both classifier checkpoints |
 
 Classifier checkpoint paths are listed in `config/checkpoints.json`. The default
@@ -103,3 +103,27 @@ The bundle is approximately 314 MB and contains prepared crops and required
 scientific manifests, not whole slides. It includes reserved test files only for
 input-integrity checks; the demo manifest selects validation images exclusively.
 Do not run model selection or example inference on the test folder.
+
+## Notebook region and detector
+
+The notebook additionally needs the exact prepared validation region and detector
+checkpoint listed in [examples/region.json](../examples/region.json). Request these
+from the team's authorized artifact custodian, placing them under `external/demo/`
+or pointing your local JSON at an existing authorized copy. They are separate from
+the classifier bundle. The preflight checks their full SHA-256 hashes before use.
+The filenames alone do not establish identity; a different detector checkpoint
+cannot be substituted into this recorded demonstration.
+
+## Current joint detector
+
+The initialization and completed joint checkpoint are listed in `config/checkpoints.json`.
+Under the RHF root, the completed run is
+`model_A/runs/A4_ignore_springinit_20261021_debug/train/`; its training COCO export is
+`model_A/runs/A4_ignore_springinit_20261021_debug/data/`. The fixed validation export is
+`processed/method_a_focus_stack_v1/`. Retrieve the run's `status.json` with its checkpoint
+for evaluation. The crop-generation baseline needs `inputs/priority_records.csv`,
+`plan/`, the original source images/annotations, and `dataset/` metadata.
+
+Use local configurations to point to retrieved copies. Source paths inside historical
+NDPI manifests remain immutable and require compatible mounts. The PNG region demo
+works without those mounts.

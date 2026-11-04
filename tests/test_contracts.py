@@ -1,21 +1,14 @@
 """Meaningful input and evaluation regression tests; no images or weights required."""
 
-import importlib.util
-import json
 from pathlib import Path
-import sys
 import tempfile
 import unittest
+from smithsonian.inference.infer import validate_boxes
+from smithsonian.io.artifacts import verify, sha256
+from smithsonian.data.broad_labels import apply_broad
+
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path[:0] = [
-    str(ROOT / "scripts"),
-    str(ROOT / "scripts/pipeline_abbas_v1"),
-    str(ROOT / "scripts/classification"),
-]
-from infer import validate_boxes
-from artifacts import verify, sha256
-from broad_labels import apply_broad
 
 
 class InputContracts(unittest.TestCase):
@@ -54,5 +47,10 @@ class InputContracts(unittest.TestCase):
             apply_broad(records, list(reversed(labels)), ROOT / "data/fine_to_broad.csv")
 
 
-if __name__ == "__main__":
+def main():
+    """Run input contract checks."""
     unittest.main()
+
+
+if __name__ == "__main__":
+    main()

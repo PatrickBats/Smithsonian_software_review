@@ -1,0 +1,11 @@
+{
+  "crops": "../external/classifier_inputs/dataset",
+  "image": "../external/demo/f1921738c5ed013195da4ed8.png",
+  "checkpoint": "../external/demo/checkpoint_best_total.pth",
+  "swin_checkpoint": "../external/runs/broad_swin_2026-10-08/separate_slides/ordinary_baseline/best.pt",
+  "dino_checkpoint": "../external/runs/broad_dino_2026-10-08/separate_slides/backbone_finetune/best.pt",
+  "dino_source": "../external/dinov2",
+  "device": "cpu",
+  "threshold": 0.5,
+  "output": "../outputs/notebook"
+}

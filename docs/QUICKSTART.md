@@ -13,20 +13,20 @@ git clone https://github.com/PatrickBats/Smithsonian_software_review.git
 cd Smithsonian_software_review
 python3 -m venv .venv
 source .venv/bin/activate
+python -m pip install --no-deps -e .
 python scripts/check_repository.py
 python -m unittest discover -s tests -v
-python -m unittest discover -s scripts/method_a/data_variants/tests -v
 python scripts/results.py --output outputs/first_comparison
 ```
 
-**Expected:** the repository check passes, the two test suites report 3 and 15
-passing tests, and `outputs/first_comparison/` contains:
+**Expected:** the repository check passes, the test suites pass their
+checks, and `outputs/first_comparison/` contains:
 
 | File | What to open it for |
 | --- | --- |
 | `classification.svg` | View the classifier accuracy chart in a browser |
 | `classification.csv` | Swin/DINO accuracy and macro-F1 by validation split |
-| `detection.csv` | A1/A2/A3 detected and correctly identified target counts |
+| `detection.csv` | Current joint detector recovery and correct-identification counts |
 | `rgb_comparison.csv` | Swin/DINO comparison on identical detector crops |
 
 These commands regenerate outputs from recorded aggregate metrics. They do not
@@ -39,14 +39,14 @@ rerun the models. See [the results guide](RESULTS.md) for inference replay comma
 Keep the virtual environment from step 1 active:
 
 ```bash
-python -m pip install torch==2.10.0 torchvision==0.25.0 --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -r requirements.txt
 python -m pip check
 ```
 
-This is the smaller CPU classifier setup. The complete tested CPU environment is
-recorded in `requirements-cpu-lock.txt`; imaging/detector dependencies are not
-needed for this single-crop example.
+This single requirements file installs the complete CPU review environment,
+including imaging, detection and the notebook. Run `python -m pip install --no-deps -e .`
+after installation if you skipped step 1. The end-to-end notebook is described in
+[notebooks/README.md](../notebooks/README.md).
 
 ### Retrieve the inputs
 
