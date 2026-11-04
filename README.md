@@ -57,7 +57,8 @@ environment; the supplied requirements select CPU wheels. Training is an explici
 
 Images and weights remain external. [Data setup](docs/DATA.md) gives retrieval locations,
 checkpoint hashes, and required dataset layouts. The modeling task uses 28 categories.
-Frozen category maps and split memberships are preserved.
+[Category maps and split definitions](src/smithsonian/data/README.md) describe
+the labels and specimen assignments.
 
 Copy a [configuration template](config/README.md) to `config/local.<name>.json` and set
 its paths. JSON paths resolve relative to that file; command-line paths resolve relative

@@ -6,7 +6,8 @@ Outputs are image crops, COCO datasets, and metadata recording their source iden
 ## Classifier crops
 
 `full_tenengrad.py` coordinates read-only workers in `tenengrad_pilot.py`. Each specimen's
-crop is compared across focal planes; the selected RGB crop is saved at native resolution.
+crop is compared across focal planes using Tenengrad sharpness; the selected RGB crop
+is saved at native resolution.
 The worker name is retained for command compatibility. `crops.py` prepares classifier
 inputs from region-local `xyxy` detector boxes using context, white padding, and resizing.
 

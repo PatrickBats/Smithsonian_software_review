@@ -17,7 +17,8 @@ python -m smithsonian.training.train_dino_finetune --config config/training.exam
 Use separate fresh output directories. Optional `--specimen-split` selects the frozen
 shared-slide assignment; omission uses separate slides. `common.py` provides dataset
 loading, augmentations, validation, and metrics. Hyperparameters are in JSON and can
-be overridden explicitly on the command line.
+be overridden explicitly on the command line. The classifier checkpoint with the
+highest validation macro-F1 is retained.
 
 ## Joint RF-DETR
 

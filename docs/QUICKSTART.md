@@ -30,7 +30,8 @@ checks, and `outputs/first_comparison/` contains:
 | `rgb_comparison.csv` | Swin/DINO comparison on identical detector crops |
 
 These commands regenerate outputs from recorded aggregate metrics. See
-[the results guide](RESULTS.md) for inference replay commands.
+[the evaluation guide](../src/smithsonian/evaluation/README.md) for metrics and
+validation commands.
 
 ## 2. Run Swin on a real specimen
 
@@ -170,6 +171,7 @@ misclassified this specimen. Swin classified it correctly in step 2.
 | xFormers unavailable warning on CPU | The tested CPU demo works without xFormers |
 | A prediction disagrees with the reference | Record the disagreement and review the image and reference label with an expert |
 
-Next: use the [workflow guide](WORKFLOWS.md) for detector integration and the
-[results guide](RESULTS.md) for full validation replay. The examples above use
+Next: use the [inference guide](../src/smithsonian/inference/README.md) for detector
+integration and full validation replay, and the
+[evaluation guide](../src/smithsonian/evaluation/README.md) for metric definitions. The examples above use
 validation specimens; the test set remains reserved.
